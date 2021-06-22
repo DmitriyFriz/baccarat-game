@@ -1,5 +1,13 @@
 import React from 'react';
+import { BettingPanel } from '../BettingPanel';
+
+// style
+import s from './App.module.scss';
 
 export const App = () => {
-  return <h1>Hello world</h1>;
+  return (
+    <div className={s.container}>
+      <BettingPanel />
+    </div>
+  );
 };
