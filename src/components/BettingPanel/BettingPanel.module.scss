@@ -3,30 +3,5 @@
   justify-content: space-between;
   align-items: center;
 
-  width: 500px;
-}
-
-.radio {
-  display: none;
-}
-
-.bet {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  transition: all 0.5s 0s ease;
-
-  height: 100px;
-  width: 200px;
-
-  border-radius: 5px;
-
-  background: #d7eaf3;
-
-  cursor: pointer;
-}
-
-.radio:checked + .bet {
-  background: hotpink;
+  gap: 15px;
 }

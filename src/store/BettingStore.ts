@@ -1,5 +1,5 @@
 import { makeAutoObservable, action } from 'mobx';
-import { BettingName } from '../types';
+import { BettingName } from '../common/types';
 
 export class BettingStore {
   selectedBet: BettingName | null = null;
