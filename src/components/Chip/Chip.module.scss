@@ -1,0 +1,10 @@
+.chip {
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  transition: transform 300ms ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
