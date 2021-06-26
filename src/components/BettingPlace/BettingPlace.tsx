@@ -14,7 +14,7 @@ interface BettingPlaceProps {
 export const BettingPlace = observer(({ bettingName }: BettingPlaceProps) => {
   const bettingStore = useStore('bettingStore');
   const ratio = ratioByBettingName[bettingName];
-  const amount = 0;
+  const amount = bettingStore.selectBetAmountByName(bettingName);
 
   return (
     <label htmlFor={bettingName}>
