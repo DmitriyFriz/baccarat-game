@@ -4,6 +4,8 @@ import { useStore } from '../../store';
 import { chipValues } from '../../common/gameData';
 import { Chip } from '../Chip';
 
+import s from './BettingControllers.module.scss';
+
 export const BettingControllers = observer(() => {
   const bettingStore = useStore('bettingStore');
   const { currentScore } = bettingStore;
@@ -14,8 +16,8 @@ export const BettingControllers = observer(() => {
 
   return (
     <div>
-      {chipsView}
-      <div>{currentScore}</div>
+      <div className={s.chips_area}>{chipsView}</div>
+      <div className={s.score}>{currentScore}</div>
     </div>
   );
 });

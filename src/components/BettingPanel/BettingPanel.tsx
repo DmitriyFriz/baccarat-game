@@ -3,7 +3,6 @@ import { BettingPlace } from '../BettingPlace';
 import { BettingName } from '../../common/types';
 import { BettingControllers } from '../BettingControllers';
 
-// style
 import s from './BettingPanel.module.scss';
 
 export const BettingPanel = () => {

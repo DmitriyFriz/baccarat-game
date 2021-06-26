@@ -5,7 +5,6 @@ import { ReactComponent as ChipSprite } from '../../assets/img/chips.svg';
 import { ChipValue } from '../../common/types';
 import { getChipSpriteLeftCoordinate } from './utility';
 
-// style
 import s from './Chip.module.scss';
 
 interface ChipProps {
