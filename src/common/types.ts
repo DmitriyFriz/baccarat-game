@@ -1,4 +1,3 @@
-import { type } from 'os';
 import { chipValues, cardSuits, cardValues } from './gameData';
 
 export enum BettingName {
