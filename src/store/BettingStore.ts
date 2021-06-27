@@ -30,7 +30,11 @@ export class BettingStore {
 
   cancelBet() {
     if (this.selectedBet !== null) {
-      this.bets[this.selectedBet].pop();
+      const value = this.bets[this.selectedBet].pop();
+
+      if (value !== undefined) {
+        this.score += value;
+      }
     }
   }
 

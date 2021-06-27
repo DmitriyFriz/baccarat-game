@@ -17,9 +17,9 @@ export const BettingControllers = observer(() => {
 
   return (
     <div className={s.container}>
+      <div className={s.score}>{currentScore}</div>
       <div className={s.chips_area}>{chipsView}</div>
       <CancelBet />
-      <div className={s.score}>{currentScore}</div>
     </div>
   );
 });
