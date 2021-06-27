@@ -8,12 +8,10 @@ import s from './Board.module.scss';
 export const Board = observer(() => {
   const gameStore = useStore('gameStore');
 
-  gameStore.startGame();
-
   return (
     <div className={s.board}>
-      <CardCollection collection={gameStore.playerCards} />
-      <CardCollection collection={gameStore.bankerCards} />
+      <CardCollection collection={gameStore.playerCards.concat()} />
+      <CardCollection collection={gameStore.bankerCards.concat()} />
     </div>
   );
 });

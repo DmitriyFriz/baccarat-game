@@ -1,4 +1,4 @@
-import { makeAutoObservable } from 'mobx';
+import { action, makeAutoObservable } from 'mobx';
 import { PlayingCard } from '../common/types';
 import { Dealer } from './Dealer';
 
@@ -8,7 +8,9 @@ export class GameStore {
   bankerCards: PlayingCard[] = [];
 
   constructor(private dealer: Dealer) {
-    makeAutoObservable(this);
+    makeAutoObservable(this, {
+      startGame: action.bound,
+    });
   }
 
   startGame() {
