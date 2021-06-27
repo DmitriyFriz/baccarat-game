@@ -1,0 +1,25 @@
+.cancel {
+  height: 30px;
+  width: 100px;
+  padding: 3px;
+
+  transition: opacity 0.2s ease-out;
+
+  border-radius: 3px;
+  border: 1px solid #218fbe;
+  outline: none;
+
+  background-color: #c1e7f7;
+  cursor: pointer;
+
+  text-transform: capitalize;
+
+  &:hover {
+    transition: box-shadow 0.2s;
+    box-shadow: 0 0 3px #181c22;
+  }
+
+  &:disabled {
+    opacity: 0;
+  }
+}

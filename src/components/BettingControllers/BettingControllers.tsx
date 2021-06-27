@@ -3,6 +3,7 @@ import { observer } from 'mobx-react-lite';
 import { useStore } from '../../store';
 import { chipValues } from '../../common/gameData';
 import { Chip } from '../Chip';
+import { CancelBet } from '../CancelBet';
 
 import s from './BettingControllers.module.scss';
 
@@ -15,8 +16,9 @@ export const BettingControllers = observer(() => {
   ));
 
   return (
-    <div>
+    <div className={s.container}>
       <div className={s.chips_area}>{chipsView}</div>
+      <CancelBet />
       <div className={s.score}>{currentScore}</div>
     </div>
   );

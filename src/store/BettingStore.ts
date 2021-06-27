@@ -13,6 +13,7 @@ export class BettingStore {
     makeAutoObservable(this, {
       changeBet: action.bound,
       addBet: action.bound,
+      cancelBet: action.bound,
     });
   }
 
@@ -27,11 +28,21 @@ export class BettingStore {
     }
   }
 
+  cancelBet() {
+    if (this.selectedBet !== null) {
+      this.bets[this.selectedBet].pop();
+    }
+  }
+
   selectBetAmountByName(name: BettingName) {
     return this.bets[name].reduce((amount, value) => amount + value, 0);
   }
 
   get currentScore() {
     return this.score;
+  }
+
+  get disableCancelBet() {
+    return this.selectedBet === null || this.bets[this.selectedBet].length === 0;
   }
 }
