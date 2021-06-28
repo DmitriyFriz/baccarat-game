@@ -25,10 +25,6 @@ export class Dealer {
   }
 
   private createDeck() {
-    const deck: PlayingCard[] = [];
-
-    cardSuits.forEach((suit) => cardValues.forEach((value) => deck.push({ suit, value })));
-
-    return deck;
+    return cardSuits.flatMap((suit) => cardValues.map((value) => ({ suit, value })));
   }
 }
