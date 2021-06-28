@@ -2,13 +2,8 @@ import { PlayingCard } from '../common/types';
 import { cardSuits, cardValues } from '../common/gameData';
 
 export class Dealer {
-  private readonly deck: PlayingCard[];
-  private cardsInGame: PlayingCard[];
-
-  constructor() {
-    this.deck = this.createDeck();
-    this.cardsInGame = this.createShuffledCards();
-  }
+  private readonly deck: PlayingCard[] = this.createDeck();
+  private cardsInGame: PlayingCard[] = this.createShuffledCards();
 
   get card() {
     if (this.cardsInGame.length === 0) {
@@ -29,11 +24,11 @@ export class Dealer {
     return shuffledCards;
   }
 
-  private createDeck = () => {
+  private createDeck() {
     const deck: PlayingCard[] = [];
 
     cardSuits.forEach((suit) => cardValues.forEach((value) => deck.push({ suit, value })));
 
     return deck;
-  };
+  }
 }

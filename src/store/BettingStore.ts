@@ -1,5 +1,6 @@
 import { makeAutoObservable, action } from 'mobx';
-import { BettingName, Bets, ChipValue } from '../common/types';
+import { Bets, ChipValue } from '../common/types';
+import { BettingName } from '../common/gameData';
 
 export class BettingStore {
   selectedBet: BettingName | null = null;

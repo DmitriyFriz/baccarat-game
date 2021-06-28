@@ -1,4 +1,8 @@
-import { BettingName } from './types';
+export enum BettingName {
+  Player = 'player',
+  Banker = 'banker',
+  Tie = 'tie',
+}
 
 export const ratioByBettingName = {
   [BettingName.Player]: 2,

@@ -68,6 +68,7 @@
     "lines-between-class-members": "off",
     "@typescript-eslint/no-shadow": ["error"],
     "no-empty-function": ["error", { "allow": ["constructors"] }],
+    "class-methods-use-this": "off",
     "no-param-reassign": [
       "error",
       { "props": true, "ignorePropertyModificationsFor": ["state", "draft", "draftState"] }

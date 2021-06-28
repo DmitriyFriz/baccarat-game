@@ -1,8 +1,7 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '../../store';
-import { BettingName } from '../../common/types';
-import { ratioByBettingName } from '../../common/gameData';
+import { BettingName, ratioByBettingName } from '../../common/gameData';
 
 // style
 import s from './BettingPlace.module.scss';

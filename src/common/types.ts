@@ -1,10 +1,4 @@
-import { chipValues, cardSuits, cardValues } from './gameData';
-
-export enum BettingName {
-  Player = 'player',
-  Banker = 'banker',
-  Tie = 'tie',
-}
+import { BettingName, chipValues, cardSuits, cardValues } from './gameData';
 
 export type ChipValue = typeof chipValues[number];
 

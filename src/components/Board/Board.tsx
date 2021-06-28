@@ -10,8 +10,8 @@ export const Board = observer(() => {
 
   return (
     <div className={s.board}>
-      <CardCollection collection={gameStore.playerCards.concat()} />
-      <CardCollection collection={gameStore.bankerCards.concat()} />
+      <CardCollection collection={gameStore.playerCards} />
+      <CardCollection collection={gameStore.bankerCards} />
     </div>
   );
 });

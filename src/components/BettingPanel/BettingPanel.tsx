@@ -1,6 +1,6 @@
 import React from 'react';
 import { BettingPlace } from '../BettingPlace';
-import { BettingName } from '../../common/types';
+import { BettingName } from '../../common/gameData';
 import { BettingControllers } from '../BettingControllers';
 
 import s from './BettingPanel.module.scss';
