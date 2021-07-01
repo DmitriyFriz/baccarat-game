@@ -6,10 +6,13 @@ export class GameStore {
   private readonly countCardsForFirstDistribution = 2;
   playerCards: PlayingCard[] = [];
   bankerCards: PlayingCard[] = [];
+  isGame: boolean = false;
 
   constructor(private dealer: Dealer) {
     makeAutoObservable(this, {
       startGame: action.bound,
+      continueGame: action.bound,
+      finishGame: action.bound,
     });
   }
 
@@ -18,5 +21,17 @@ export class GameStore {
       this.playerCards.push(this.dealer.card);
       this.bankerCards.push(this.dealer.card);
     }
+    this.isGame = true;
+  }
+
+  continueGame() {
+    this.playerCards.push(this.dealer.card);
+    this.bankerCards.push(this.dealer.card);
+  }
+
+  finishGame() {
+    this.playerCards = [];
+    this.bankerCards = [];
+    this.isGame = false;
   }
 }

@@ -10,8 +10,8 @@ export const Board = observer(() => {
 
   return (
     <div className={s.board}>
-      <CardCollection collection={gameStore.playerCards} />
-      <CardCollection collection={gameStore.bankerCards} />
+      <CardCollection collection={gameStore.playerCards} isBankerCollection={false} />
+      <CardCollection collection={gameStore.bankerCards} isBankerCollection={true} />
     </div>
   );
 });

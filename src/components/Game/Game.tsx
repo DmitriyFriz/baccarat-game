@@ -15,6 +15,9 @@ export const Game = observer(() => {
       <button type="button" onClick={() => gameStore.startGame()}>
         Start Game
       </button>
+      <button type="button" onClick={() => gameStore.finishGame()}>
+        Finish Game
+      </button>
       <BettingPanel />
     </div>
   );
