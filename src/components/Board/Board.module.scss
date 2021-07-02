@@ -1,4 +1,6 @@
 .board {
+  position: relative;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -6,4 +8,12 @@
   width: 800px;
   height: 350px;
   background-color: rgb(219, 221, 216);
+}
+
+.deck {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: 85px;
 }
