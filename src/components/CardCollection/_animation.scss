@@ -1,0 +1,87 @@
+@keyframes dealing {
+  0% {
+    top: -50%;
+    right: -100%;
+    transform: translate(-100%, 50%);
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  100% {
+    top: 0;
+    right: 0;
+  }
+}
+
+// @mixin dealing-mixin($name, $top) {
+//   @keyframes #{$name} {
+//     0% {
+//       top: -50%;
+//       right: -100%;
+//       transform: translate(-100%, 50%);
+//       opacity: 0;
+//     }
+
+//     30% {
+//       opacity: 1;
+//     }
+
+//     100% {
+//       top: 0;
+//       right: 0;
+//     }
+//   }
+// }
+
+// @include dealing-mixin(deal, 30px);
+
+@keyframes remove {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes move-1 {
+  50% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-200%);
+  }
+}
+
+@keyframes move-2 {
+  0% {
+    transform: translateX(-50%);
+  }
+
+  50% {
+    transform: translate(-100%, 0);
+  }
+
+  100% {
+    transform: translate(-100%, -200%);
+  }
+}
+
+@keyframes move-3 {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  50% {
+    transform: translate(-200%, 0);
+  }
+
+  100% {
+    transform: translate(-200%, -200%);
+  }
+}

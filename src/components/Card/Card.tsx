@@ -5,7 +5,6 @@ import { ReactComponent as CardSprite } from '../../assets/img/cards.svg';
 import { ReactComponent as BackwardIcon } from '../../assets/img/backward.svg';
 
 import s from './Card.module.scss';
-import st from '../CardCollection/CardCollection.module.scss';
 
 export const Card = ({ suit, value }: PlayingCard) => {
   const { leftCoordinate, topCoordinate } = getCardSpriteCoordinates({ suit, value });
