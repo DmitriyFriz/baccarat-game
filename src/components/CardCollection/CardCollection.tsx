@@ -5,7 +5,6 @@ import { useStore } from '../../store';
 import { PlayingCard } from '../../common/types';
 import { Card } from '../Card';
 
-// import './CardCollection.scss';
 import s from './CardCollection.module.scss';
 
 interface CardCollectionProps {
@@ -31,7 +30,7 @@ export const CardCollection = observer(
                 exitActive: s.card_hidden,
               }}
               timeout={{
-                exit: 700,
+                exit: 1000,
               }}
               key={key}
               nodeRef={nodeRef}
@@ -54,7 +53,9 @@ export const CardCollection = observer(
               }}
             >
               <div key={key} ref={nodeRef} className={s.card_container}>
-                <Card suit={suit} value={value} key={key} />
+                <div className={s.card_inner}>
+                  <Card suit={suit} value={value} key={key} />
+                </div>
               </div>
             </CSSTransition>
           );
