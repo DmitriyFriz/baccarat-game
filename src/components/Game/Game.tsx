@@ -12,9 +12,6 @@ export const Game = observer(() => {
   return (
     <div className={s.game}>
       <Board />
-      <button type="button" onClick={() => gameStore.startGame()}>
-        Start Game
-      </button>
       <button type="button" onClick={() => gameStore.resetCards()}>
         Reset
       </button>

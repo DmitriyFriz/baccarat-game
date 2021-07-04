@@ -28,7 +28,7 @@ body {
   font-size: 16px;
 }
 
-.container {
+.app_container {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -39,30 +39,28 @@ body {
   padding: 10px;
 }
 
-:global {
-  .button {
-    height: 30px;
-    width: 100px;
-    padding: 3px;
+.button {
+  height: 30px;
+  width: 100px;
+  padding: 3px;
 
-    transition: opacity 0.2s ease-out;
+  transition: opacity 0.2s ease-out;
 
-    border-radius: 3px;
-    border: 1px solid #218fbe;
-    outline: none;
+  border-radius: 3px;
+  border: 1px solid #218fbe;
+  outline: none;
 
-    background-color: #c1e7f7;
-    cursor: pointer;
+  background-color: #c1e7f7;
+  cursor: pointer;
 
-    text-transform: uppercase;
+  text-transform: uppercase;
 
-    &:hover {
-      transition: box-shadow 0.2s;
-      box-shadow: 0 0 3px #181c22;
-    }
+  &:hover {
+    transition: box-shadow 0.2s;
+    box-shadow: 0 0 3px #181c22;
+  }
 
-    &:disabled {
-      opacity: 0;
-    }
+  &:disabled {
+    opacity: 0;
   }
 }
