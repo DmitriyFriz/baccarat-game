@@ -11,6 +11,8 @@ export const Board = observer(() => {
 
   return (
     <div className={s.board}>
+      <div className={s.player_score}>player:{gameStore.playerScore}</div>
+      <div className={s.banker_score}>banker:{gameStore.bankerScore}</div>
       <CardCollection collection={gameStore.playerCards} isBankerCollection={false} />
       <CardCollection collection={gameStore.bankerCards} isBankerCollection={true} />
       <DeckIcon className={s.deck} />

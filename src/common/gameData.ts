@@ -28,3 +28,10 @@ export const cardValues = [
   'Q',
   'K',
 ] as const;
+
+export const basicScore = 10;
+export const minScore = 6;
+export const prettyScore: ReadonlyArray<number> = [8, 9];
+
+export const minCountCards = 2;
+export const maxCountCards = 3;

@@ -17,3 +17,13 @@
 
   width: 85px;
 }
+
+.player_score,
+.banker_score {
+  position: absolute;
+  top: 0;
+}
+
+.banker_score {
+  left: 50%;
+}

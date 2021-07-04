@@ -10,7 +10,7 @@ export class BettingStore {
     [BettingName.Tie]: [],
   };
 
-  constructor(private score: number) {
+  constructor(private balance: number) {
     makeAutoObservable(this, {
       changeBet: action.bound,
       addBet: action.bound,
@@ -25,7 +25,7 @@ export class BettingStore {
   addBet(value: ChipValue) {
     if (this.selectedBet !== null) {
       this.bets[this.selectedBet].push(value);
-      this.score -= value;
+      this.balance -= value;
     }
   }
 
@@ -34,7 +34,7 @@ export class BettingStore {
       const value = this.bets[this.selectedBet].pop();
 
       if (value !== undefined) {
-        this.score += value;
+        this.balance += value;
       }
     }
   }
@@ -43,8 +43,8 @@ export class BettingStore {
     return this.bets[name].reduce((amount, value) => amount + value, 0);
   }
 
-  get currentScore() {
-    return this.score;
+  get currentBalance() {
+    return this.balance;
   }
 
   get disableCancelBet() {
