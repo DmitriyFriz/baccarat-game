@@ -21,6 +21,8 @@ export class GameStore {
 
   startGame() {
     this.playerCards.push(this.dealer.card);
+    this.playerScore = 0;
+    this.bankerScore = 0;
     this.isGame = true;
   }
 

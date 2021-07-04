@@ -7,7 +7,6 @@
 
   width: 800px;
   height: 350px;
-  background-color: rgb(219, 221, 216);
 }
 
 .deck {
@@ -22,6 +21,8 @@
 .banker_score {
   position: absolute;
   top: 0;
+
+  transition: opacity 1s ease-out;
 }
 
 .banker_score {

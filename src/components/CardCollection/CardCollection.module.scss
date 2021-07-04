@@ -16,6 +16,8 @@ $dealingStepDelay: 800ms;
 
 .card_container {
   position: absolute;
+  top: 100%;
+  transform: translateY(-100%);
 
   width: $cardWidth;
   height: $cardWidth * (190/ 140);
@@ -25,11 +27,11 @@ $dealingStepDelay: 800ms;
   font-size: 0;
 
   &:nth-child(2) {
-    transform: translateX(50%);
+    transform: translate(50%, -100%);
   }
 
   &:nth-child(3) {
-    transform: translateX(100%);
+    transform: translate(100%, -100%);
   }
 }
 
