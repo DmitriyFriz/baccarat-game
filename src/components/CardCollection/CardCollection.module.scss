@@ -1,7 +1,6 @@
 @import './animation';
 
 $cardWidth: 80px;
-$dealingStepDelay: 800ms;
 
 .banker_collection,
 .player_collection {
@@ -17,7 +16,6 @@ $dealingStepDelay: 800ms;
 .card_container {
   position: absolute;
   top: 100%;
-  transform: translateY(-100%);
 
   width: $cardWidth;
   height: $cardWidth * (190/ 140);
@@ -25,6 +23,10 @@ $dealingStepDelay: 800ms;
 
   background-color: transparent;
   font-size: 0;
+
+  &:nth-child(1) {
+    transform: translate(0, -100%);
+  }
 
   &:nth-child(2) {
     transform: translate(50%, -100%);
@@ -39,19 +41,22 @@ $dealingStepDelay: 800ms;
   position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 600ms;
+  transition: transform 500ms 150ms;
   transform-style: preserve-3d;
 }
 
 .player_collection {
-  .card_showed.card_container {
+  .card_container {
+    right: 75%;
+  }
+
+  .card_showed {
     &:nth-child(1) {
       animation-name: player-dealing-1;
     }
 
     &:nth-child(2) {
       animation-name: player-dealing-2;
-      // animation-delay: $dealingStepDelay * 2;
     }
 
     &:nth-child(3) {
@@ -61,20 +66,21 @@ $dealingStepDelay: 800ms;
 }
 
 .banker_collection {
-  .card_showed.card_container {
+  .card_container {
+    right: 25%;
+  }
+
+  .card_showed {
     &:nth-child(1) {
       animation-name: banker-dealing-1;
-      // animation-delay: $dealingStepDelay;
     }
 
     &:nth-child(2) {
       animation-name: banker-dealing-2;
-      // animation-delay: $dealingStepDelay * 3;
     }
 
     &:nth-child(3) {
       animation-name: banker-dealing-3;
-      // animation-delay: $dealingStepDelay;
     }
   }
 }
@@ -86,11 +92,11 @@ $dealingStepDelay: 800ms;
   animation-delay: 200ms;
 }
 
-$moveCardDuring: 500ms;
-$moveCardDelay: 600ms;
+$moveCardDuring: 800ms;
+$moveCardDelay: 0ms;
 
 $removeCardDuring: 300ms;
-$removeCardDelay: 700ms;
+$removeCardDelay: 400ms;
 
 .card_hidden {
   .card_inner {

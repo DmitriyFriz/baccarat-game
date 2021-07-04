@@ -13,8 +13,8 @@
 
     100% {
       top: 100%;
-      right: 100% / $groupNumber;
-      transform: translate(50% + 50% * $childNumber, -100%);
+      right: 100% / $groupNumber -25%;
+      transform: translate(-50% + 50% * $childNumber, -100%);
     }
   }
 }
@@ -37,40 +37,22 @@
   }
 }
 
-@keyframes move-1 {
-  50% {
-    transform: translateY(-100%);
-  }
+@mixin move-mixin($name, $childNumber) {
+  @keyframes #{$name} {
+    0% {
+      transform: translate(-50% + 50% * $childNumber, -100%);
+    }
 
-  100% {
-    transform: translateY(-300%);
+    30% {
+      transform: translate(50%, -100%);
+    }
+
+    100% {
+      transform: translate(50%, -300%);
+    }
   }
 }
 
-@keyframes move-2 {
-  0% {
-    transform: translate(50%, -100%);
-  }
-
-  50% {
-    transform: translate(0, -100%);
-  }
-
-  100% {
-    transform: translate(0, -300%);
-  }
-}
-
-@keyframes move-3 {
-  0% {
-    transform: translate(100%, -100%);
-  }
-
-  50% {
-    transform: translate(0, -100%);
-  }
-
-  100% {
-    transform: translate(0, -300%);
-  }
-}
+@include move-mixin(move-1, 1);
+@include move-mixin(move-2, 2);
+@include move-mixin(move-3, 3);

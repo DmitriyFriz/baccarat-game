@@ -20,11 +20,16 @@
 .player_score,
 .banker_score {
   position: absolute;
-  top: 0;
+  top: 55%;
+  transform: translate(50%, -50%);
 
-  transition: opacity 1s ease-out;
+  transition: opacity 600ms ease-out;
+}
+
+.player_score {
+  right: 75%;
 }
 
 .banker_score {
-  left: 50%;
+  right: 25%;
 }
