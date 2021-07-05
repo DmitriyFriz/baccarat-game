@@ -19,7 +19,7 @@ export const CardCollection = observer(
 
     return (
       <TransitionGroup className={collectionClass}>
-        {collection.map(({ suit, value }) => {
+        {collection.map(({ suit, value }, index) => {
           const key = `${suit}${value}`;
           const nodeRef = React.createRef<HTMLDivElement>();
 
@@ -37,6 +37,11 @@ export const CardCollection = observer(
               appear={true}
               onEntered={() => {
                 gameStore.continueGame();
+              }}
+              onExited={() => {
+                if (index === 0 && isBankerCollection) {
+                  gameStore.finishGame();
+                }
               }}
               addEndListener={(done) => {
                 nodeRef.current!.addEventListener(

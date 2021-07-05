@@ -22,6 +22,8 @@ export class GameStore {
     makeAutoObservable(this, {
       startGame: action.bound,
       continueGame: action.bound,
+      resetCards: action.bound,
+      finishGame: action.bound,
     });
   }
 
@@ -83,7 +85,9 @@ export class GameStore {
     this.bankerCards = [];
     this.playerScore = null;
     this.bankerScore = null;
+  }
 
+  finishGame() {
     this.isGame = false;
   }
 }

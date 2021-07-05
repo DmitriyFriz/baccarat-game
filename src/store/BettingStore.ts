@@ -16,8 +16,9 @@ export class BettingStore {
     makeAutoObservable(this, {
       changeBet: action.bound,
       addBet: action.bound,
-      calculationReward: action.bound,
       cancelBet: action.bound,
+      calculationReward: action.bound,
+      restBets: action.bound,
     });
   }
 
@@ -52,6 +53,12 @@ export class BettingStore {
 
     this.reward = Math.round(betAmount * ratioByBettingName[wonBet] * (1 - commission / 100));
     this.balance += this.reward;
+  }
+
+  restBets() {
+    this.reward = null;
+    this.selectedBet = null;
+    Object.values(this.bets).forEach((bet) => bet.splice(0));
   }
 
   get currentBalance() {
