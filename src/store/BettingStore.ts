@@ -9,7 +9,7 @@ export class BettingStore {
     [BettingName.Banker]: [],
     [BettingName.Tie]: [],
   };
-  gain: number | null = null;
+  reward: number | null = null;
   commissionForBanker: number = 5;
 
   constructor(private balance: number) {
@@ -50,8 +50,8 @@ export class BettingStore {
     const betAmount = this.selectBetAmountByName(wonBet);
     const commission = wonBet === BettingName.Banker ? this.commissionForBanker : 0;
 
-    this.gain = betAmount * ratioByBettingName[wonBet] * (1 - commission / 100);
-    this.balance += this.gain;
+    this.reward = Math.round(betAmount * ratioByBettingName[wonBet] * (1 - commission / 100));
+    this.balance += this.reward;
   }
 
   get currentBalance() {

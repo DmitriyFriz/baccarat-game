@@ -5,6 +5,7 @@ import { ReactComponent as DeckIcon } from '../../assets/img/deck.svg';
 import { CardCollection } from '../CardCollection';
 import { Score } from '../Score';
 import { DealButton } from '../DealButton';
+import { Banner } from '../Banner';
 
 import s from './Board.module.scss';
 
@@ -13,6 +14,7 @@ export const Board = observer(() => {
 
   return (
     <div className={s.board}>
+      <Banner />
       <Score name="player" score={gameStore.playerScore} className={s.player_score} />
       <Score name="banker" score={gameStore.bankerScore} className={s.banker_score} />
       <CardCollection collection={gameStore.playerCards} isBankerCollection={false} />

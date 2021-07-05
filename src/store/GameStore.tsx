@@ -1,7 +1,14 @@
 import { action, makeAutoObservable } from 'mobx';
 import { PlayingCard } from '../common/types';
-import { minScore, prettyScore, minCountCards, maxCountCards } from '../common/gameData';
+import {
+  minScore,
+  prettyScore,
+  minCountCards,
+  maxCountCards,
+  BettingName,
+} from '../common/gameData';
 import { Dealer } from './Dealer';
+import { BettingStore } from './BettingStore';
 import { countScore } from './countScore';
 
 export class GameStore {
@@ -11,11 +18,10 @@ export class GameStore {
   bankerScore: number | null = null;
   isGame: boolean = false;
 
-  constructor(private dealer: Dealer) {
+  constructor(private dealer: Dealer, private bettingStore: BettingStore) {
     makeAutoObservable(this, {
       startGame: action.bound,
       continueGame: action.bound,
-      finishGame: action.bound,
     });
   }
 
@@ -30,8 +36,6 @@ export class GameStore {
     this.playerScore = countScore(this.playerCards);
     this.bankerScore = countScore(this.bankerCards);
 
-    console.log('continue');
-
     if (this.playerCards.length < minCountCards || this.bankerCards.length < minCountCards) {
       this.playerCards.length === this.bankerCards.length
         ? this.playerCards.push(this.dealer.card)
@@ -44,8 +48,7 @@ export class GameStore {
       (prettyScore.includes(this.playerScore) && this.playerCards.length < maxCountCards) ||
       (prettyScore.includes(this.bankerScore) && this.bankerCards.length < maxCountCards)
     ) {
-      console.log('1');
-      this.finishGame();
+      this.defineWinner();
       return;
     }
 
@@ -59,16 +62,20 @@ export class GameStore {
       return;
     }
 
-    this.finishGame();
+    this.defineWinner();
   }
 
-  finishGame() {
-    // this.playerCards = [];
-    // this.bankerCards = [];
-    // this.playerScore = null;
-    // this.bankerScore = null;
-    console.log('finish');
-    this.isGame = false;
+  private defineWinner() {
+    if (this.playerScore === this.bankerScore) {
+      this.bettingStore.calculationReward(BettingName.Tie);
+      return;
+    }
+
+    if (this.playerScore! > this.bankerScore!) {
+      this.bettingStore.calculationReward(BettingName.Player);
+    } else {
+      this.bettingStore.calculationReward(BettingName.Banker);
+    }
   }
 
   resetCards() {
@@ -76,5 +83,7 @@ export class GameStore {
     this.bankerCards = [];
     this.playerScore = null;
     this.bankerScore = null;
+
+    this.isGame = false;
   }
 }

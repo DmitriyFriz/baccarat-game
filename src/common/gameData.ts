@@ -35,3 +35,8 @@ export const prettyScore: ReadonlyArray<number> = [8, 9];
 
 export const minCountCards = 2;
 export const maxCountCards = 3;
+
+export enum BannerPhrase {
+  Win = 'you win',
+  Lose = 'you lose',
+}
