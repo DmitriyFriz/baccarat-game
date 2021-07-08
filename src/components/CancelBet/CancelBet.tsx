@@ -9,7 +9,7 @@ export const CancelBet = observer(() => {
     <button
       type="button"
       className="button"
-      onClick={() => bettingStore.cancelBet()}
+      onClick={bettingStore.cancelBet}
       disabled={bettingStore.disableCancelBet}
     >
       cancel bet

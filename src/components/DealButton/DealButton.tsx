@@ -14,7 +14,7 @@ export const DealButton = observer(() => {
     <button
       type="button"
       className={`button ${style.dealButton}`}
-      onClick={() => gameStore.startGame()}
+      onClick={gameStore.startGame}
       disabled={isDisable}
     >
       Deal
