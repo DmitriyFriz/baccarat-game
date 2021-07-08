@@ -5,7 +5,7 @@ import { chipValues } from '../../common/gameData';
 import { Chip } from '../Chip';
 import { CancelBet } from '../CancelBet';
 
-import s from './BettingControllers.module.scss';
+import style from './BettingControllers.module.scss';
 
 export const BettingControllers = observer(() => {
   const bettingStore = useStore('bettingStore');
@@ -17,9 +17,9 @@ export const BettingControllers = observer(() => {
   ));
 
   return (
-    <div className={s.container}>
-      <div className={s.balance}>{currentBalance}</div>
-      <div className={s.chips_area}>{chipsView}</div>
+    <div className={style.container}>
+      <div className={style.balance}>{currentBalance}</div>
+      <div className={style.chipsArea}>{chipsView}</div>
       <CancelBet />
     </div>
   );

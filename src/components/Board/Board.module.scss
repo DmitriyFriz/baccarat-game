@@ -17,8 +17,8 @@
   width: 85px;
 }
 
-.player_score,
-.banker_score {
+.playerScore,
+.bankerScore {
   position: absolute;
   top: 55%;
   transform: translate(50%, -50%);
@@ -26,10 +26,10 @@
   transition: opacity 600ms ease-out;
 }
 
-.player_score {
+.playerScore {
   right: 75%;
 }
 
-.banker_score {
+.bankerScore {
   right: 25%;
 }

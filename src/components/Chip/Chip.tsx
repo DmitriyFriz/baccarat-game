@@ -5,7 +5,7 @@ import { ReactComponent as ChipSprite } from '../../assets/img/chips.svg';
 import { ChipValue } from '../../common/types';
 import { getChipSpriteLeftCoordinate } from './utility';
 
-import s from './Chip.module.scss';
+import style from './Chip.module.scss';
 
 interface ChipProps {
   value: ChipValue;
@@ -17,7 +17,7 @@ export const Chip = observer(({ value }: ChipProps) => {
 
   return (
     <ChipSprite
-      className={s.chip}
+      className={style.chip}
       viewBox={`${leftCoordinate} 0 500 500`}
       onClick={() => bettingStore.addBet(value)}
     />

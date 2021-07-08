@@ -3,8 +3,7 @@ import { observer } from 'mobx-react-lite';
 import { useStore } from '../../store';
 import { BettingName, ratioByBettingName } from '../../common/gameData';
 
-// style
-import s from './BettingPlace.module.scss';
+import style from './BettingPlace.module.scss';
 
 interface BettingPlaceProps {
   bettingName: BettingName;
@@ -18,7 +17,7 @@ export const BettingPlace = observer(({ bettingName }: BettingPlaceProps) => {
   return (
     <label htmlFor={bettingName}>
       <input
-        className={s.radio}
+        className={style.radio}
         id={bettingName}
         type="radio"
         name="bet-place"
@@ -26,7 +25,7 @@ export const BettingPlace = observer(({ bettingName }: BettingPlaceProps) => {
         checked={bettingStore.selectedBet === bettingName}
         onChange={() => bettingStore.changeBet(bettingName)}
       />
-      <div className={s.bet}>
+      <div className={style.bet}>
         <p>{bettingName}</p>
         <p>{ratio}:1</p>
         <p>{amount}</p>

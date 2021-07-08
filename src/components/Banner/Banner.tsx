@@ -5,7 +5,7 @@ import { useStore } from '../../store';
 import { BannerPhrase } from '../../common/gameData';
 import { ReactComponent as BannerIcon } from '../../assets/img/banner.svg';
 
-import s from './Banner.module.scss';
+import style from './Banner.module.scss';
 
 export const Banner = observer(() => {
   const bettingStore = useStore('bettingStore');
@@ -15,7 +15,7 @@ export const Banner = observer(() => {
   const [visible, setVisible] = useState(false);
   const nodeRef = useRef(null);
 
-  const bannerClassName = reward === 0 ? s.banner_lose : s.banner_win;
+  const bannerClassName = reward === 0 ? style.bannerLose : style.bannerWin;
   const phraseMessage = reward === 0 ? BannerPhrase.Lose : BannerPhrase.Win;
   const rewardMessage = reward === 0 ? null : reward;
 
@@ -28,8 +28,8 @@ export const Banner = observer(() => {
   return (
     <CSSTransition
       classNames={{
-        enterActive: s.banner_showed,
-        exitActive: s.banner_hidden,
+        enterActive: style.bannerShowed,
+        exitActive: style.bannerHidden,
       }}
       in={visible}
       timeout={{
@@ -44,9 +44,9 @@ export const Banner = observer(() => {
         gameStore.resetCards();
       }}
     >
-      <div className={s.banner_container} ref={nodeRef}>
+      <div className={style.bannerContainer} ref={nodeRef}>
         <BannerIcon className={bannerClassName} />
-        <div className={s.massage}>
+        <div className={style.massage}>
           <div>{phraseMessage}</div>
           <div>{rewardMessage}</div>
         </div>

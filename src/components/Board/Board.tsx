@@ -7,20 +7,20 @@ import { Score } from '../Score';
 import { DealButton } from '../DealButton';
 import { Banner } from '../Banner';
 
-import s from './Board.module.scss';
+import style from './Board.module.scss';
 
 export const Board = observer(() => {
   const gameStore = useStore('gameStore');
 
   return (
-    <div className={s.board}>
+    <div className={style.board}>
       <Banner />
-      <Score name="player" score={gameStore.playerScore} className={s.player_score} />
-      <Score name="banker" score={gameStore.bankerScore} className={s.banker_score} />
+      <Score name="player" score={gameStore.playerScore} className={style.playerScore} />
+      <Score name="banker" score={gameStore.bankerScore} className={style.bankerScore} />
       <CardCollection collection={gameStore.playerCards} isBankerCollection={false} />
       <CardCollection collection={gameStore.bankerCards} isBankerCollection={true} />
       <DealButton />
-      <DeckIcon className={s.deck} />
+      <DeckIcon className={style.deck} />
     </div>
   );
 });

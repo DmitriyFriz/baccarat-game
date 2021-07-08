@@ -1,4 +1,4 @@
-.banner_container {
+.bannerContainer {
   position: absolute;
   top: 0;
   right: 50%;
@@ -20,19 +20,19 @@
   text-transform: uppercase;
 }
 
-.banner_win {
+.bannerWin {
   fill: gold;
 }
 
-.banner_lose {
+.bannerLose {
   fill: gray;
 }
 
-.banner_showed {
+.bannerShowed {
   animation: banner-move 1000ms ease-in-out 700ms backwards;
 }
 
-.banner_hidden {
+.bannerHidden {
   opacity: 0;
   transform: translate(50%, 0) scale(0.2);
 }

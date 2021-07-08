@@ -5,7 +5,7 @@ import { useStore } from '../../store';
 import { PlayingCard } from '../../common/types';
 import { Card } from '../Card';
 
-import s from './CardCollection.module.scss';
+import style from './CardCollection.module.scss';
 
 interface CardCollectionProps {
   collection: PlayingCard[];
@@ -15,7 +15,7 @@ interface CardCollectionProps {
 export const CardCollection = observer(
   ({ collection, isBankerCollection }: CardCollectionProps) => {
     const gameStore = useStore('gameStore');
-    const collectionClass = isBankerCollection ? s.banker_collection : s.player_collection;
+    const collectionClass = isBankerCollection ? style.bankerCollection : style.playerCollection;
 
     return (
       <TransitionGroup className={collectionClass}>
@@ -26,8 +26,8 @@ export const CardCollection = observer(
           return (
             <CSSTransition
               classNames={{
-                enterActive: s.card_showed,
-                exitActive: s.card_hidden,
+                enterActive: style.cardShowed,
+                exitActive: style.cardHidden,
               }}
               timeout={{
                 exit: 700,
@@ -55,8 +55,8 @@ export const CardCollection = observer(
                 );
               }}
             >
-              <div key={key} ref={nodeRef} className={s.card_container}>
-                <div className={s.card_inner}>
+              <div key={key} ref={nodeRef} className={style.cardContainer}>
+                <div className={style.cardInner}>
                   <Card suit={suit} value={value} key={key} />
                 </div>
               </div>

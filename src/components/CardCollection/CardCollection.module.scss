@@ -2,8 +2,8 @@
 
 $cardWidth: 80px;
 
-.banker_collection,
-.player_collection {
+.bankerCollection,
+.playerCollection {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -12,7 +12,7 @@ $cardWidth: 80px;
   height: 100%;
 }
 
-.card_container {
+.cardContainer {
   position: absolute;
   top: 100%;
 
@@ -36,7 +36,7 @@ $cardWidth: 80px;
   }
 }
 
-.card_inner {
+.cardInner {
   position: relative;
   width: 100%;
   height: 100%;
@@ -44,12 +44,12 @@ $cardWidth: 80px;
   transform-style: preserve-3d;
 }
 
-.player_collection {
-  .card_container {
+.playerCollection {
+  .cardContainer {
     right: 75%;
   }
 
-  .card_showed {
+  .cardShowed {
     &:nth-child(1) {
       animation-name: player-dealing-1;
     }
@@ -64,12 +64,12 @@ $cardWidth: 80px;
   }
 }
 
-.banker_collection {
-  .card_container {
+.bankerCollection {
+  .cardContainer {
     right: 25%;
   }
 
-  .card_showed {
+  .cardShowed {
     &:nth-child(1) {
       animation-name: banker-dealing-1;
     }
@@ -84,7 +84,7 @@ $cardWidth: 80px;
   }
 }
 
-.card_showed {
+.cardShowed {
   animation-duration: 700ms;
   animation-timing-function: ease-out;
   animation-fill-mode: backwards;
@@ -97,8 +97,8 @@ $moveCardDelay: 0ms;
 $removeCardDuring: 300ms;
 $removeCardDelay: 400ms;
 
-.card_hidden {
-  .card_inner {
+.cardHidden {
+  .cardInner {
     transform: rotateY(180deg);
   }
 

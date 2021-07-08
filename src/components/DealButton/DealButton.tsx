@@ -2,7 +2,7 @@ import React from 'react';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '../../store';
 
-import s from './DealButton.module.scss';
+import style from './DealButton.module.scss';
 
 export const DealButton = observer(() => {
   const gameStore = useStore('gameStore');
@@ -13,7 +13,7 @@ export const DealButton = observer(() => {
   return (
     <button
       type="button"
-      className={`button ${s.deal_button}`}
+      className={`button ${style.dealButton}`}
       onClick={() => gameStore.startGame()}
       disabled={isDisable}
     >
