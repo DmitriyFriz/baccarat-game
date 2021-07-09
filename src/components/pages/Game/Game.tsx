@@ -1,6 +1,6 @@
 import React from 'react';
-import { Board } from '../Board';
-import { BettingPanel } from '../BettingPanel';
+import { Board } from '../../Board';
+import { BettingPanel } from '../../BettingPanel';
 
 import style from './Game.module.scss';
 

@@ -1,12 +1,21 @@
 import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import style from './App.module.scss';
 
-import { Game } from '../Game';
+import { Header } from '../Header';
+import { Game } from '../pages/Game';
+import { Statistics } from '../pages/Statistics';
 
 export const App = () => {
   return (
-    <div className={style.container}>
-      <Game />
-    </div>
+    <BrowserRouter>
+      <Header />
+      <div className={style.container}>
+        <Switch>
+          <Route path="/" exact={true} component={Game} />
+          <Route path="/statistics" component={Statistics} />
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 };
