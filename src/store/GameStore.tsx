@@ -69,14 +69,14 @@ export class GameStore {
 
   private defineWinner() {
     if (this.playerScore === this.bankerScore) {
-      this.bettingStore.calculationReward(BettingName.Tie);
+      this.bettingStore.handleGameResult(BettingName.Tie, this.playerScore!, this.bankerScore!);
       return;
     }
 
     if (this.playerScore! > this.bankerScore!) {
-      this.bettingStore.calculationReward(BettingName.Player);
+      this.bettingStore.handleGameResult(BettingName.Player, this.playerScore!, this.bankerScore!);
     } else {
-      this.bettingStore.calculationReward(BettingName.Banker);
+      this.bettingStore.handleGameResult(BettingName.Banker, this.playerScore!, this.bankerScore!);
     }
   }
 

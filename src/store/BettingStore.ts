@@ -1,6 +1,7 @@
 import { makeAutoObservable, action } from 'mobx';
 import { Bets, ChipValue } from '../common/types';
 import { BettingName, ratioByBettingName } from '../common/gameData';
+import { StatisticsStore } from './StatisticsStore';
 
 export class BettingStore {
   selectedBet: BettingName | null = null;
@@ -12,12 +13,11 @@ export class BettingStore {
   reward: number | null = null;
   commissionForBanker: number = 5;
 
-  constructor(private balance: number) {
+  constructor(private balance: number, private statisticStore: StatisticsStore) {
     makeAutoObservable(this, {
       changeBet: action.bound,
       addBet: action.bound,
       cancelBet: action.bound,
-      calculationReward: action.bound,
       restBets: action.bound,
     });
   }
@@ -47,7 +47,17 @@ export class BettingStore {
     return this.bets[name].reduce((amount, value) => amount + value, 0);
   }
 
-  calculationReward(wonBet: BettingName) {
+  handleGameResult(wonBet: BettingName, playerScore: number, bankerScore: number) {
+    this.calculationReward(wonBet);
+    this.statisticStore.addRoundStatistics({
+      playerScore,
+      bankerScore,
+      betsAmount: this.allBetsAmount,
+      reward: this.reward!,
+    });
+  }
+
+  private calculationReward(wonBet: BettingName) {
     const betAmount = this.selectBetAmountByName(wonBet);
     const commission = wonBet === BettingName.Banker ? this.commissionForBanker : 0;
 
@@ -63,6 +73,13 @@ export class BettingStore {
 
   get currentBalance() {
     return this.balance;
+  }
+
+  get allBetsAmount() {
+    return Object.keys(this.bets).reduce(
+      (amount, bettingName) => amount + this.selectBetAmountByName(bettingName as BettingName),
+      0
+    );
   }
 
   get disableCancelBet() {

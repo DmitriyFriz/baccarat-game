@@ -9,7 +9,14 @@ export type Bets = {
 export type CardSuit = typeof cardSuits[number];
 export type CardValue = typeof cardValues[number];
 
-export type PlayingCard = {
+export interface PlayingCard {
   suit: CardSuit;
   value: CardValue;
-};
+}
+
+export interface RoundStatistics {
+  playerScore: number;
+  bankerScore: number;
+  betsAmount: number;
+  reward: number;
+}

@@ -2,8 +2,10 @@ import { createContext } from './storeUtils';
 import { BettingStore } from './BettingStore';
 import { GameStore } from './GameStore';
 import { Dealer } from './Dealer';
+import { StatisticsStore } from './StatisticsStore';
 
-const bettingStore = new BettingStore(1000);
+const statisticsStore = new StatisticsStore();
+const bettingStore = new BettingStore(1000, statisticsStore);
 
 const dealer = new Dealer();
 const gameStore = new GameStore(dealer, bettingStore);
