@@ -3,6 +3,7 @@ import { toJS } from 'mobx';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '../../store';
 import { Statistics } from '../../common/types';
+import { useSortTable } from '../../hooks/useSortTable';
 
 import style from './StatisticsTable.module.scss';
 
@@ -37,7 +38,9 @@ export const StatisticsTable = observer(() => {
   const statisticsStore = useStore('statisticsStore');
   const tableData = toJS(statisticsStore.statistics).reverse();
 
-  const rowsView = tableData.map((statistics) => (
+  const { getSortByKey, sortKey, isSortAscending, sortedData } = useSortTable(tableData);
+
+  const rowsView = sortedData.map((statistics) => (
     <Row statistics={statistics} key={statistics.timestamp} />
   ));
 
@@ -46,11 +49,11 @@ export const StatisticsTable = observer(() => {
       <caption>Statistics</caption>
       <thead>
         <tr>
-          <th>player</th>
-          <th>banker</th>
-          <th>bet</th>
-          <th>reward</th>
-          <th>Date</th>
+          <th onClick={() => getSortByKey('playerScore')}>player</th>
+          <th onClick={() => getSortByKey('bankerScore')}>banker</th>
+          <th onClick={() => getSortByKey('betsAmount')}>bet</th>
+          <th onClick={() => getSortByKey('reward')}>reward</th>
+          <th onClick={() => getSortByKey('timestamp')}>date</th>
         </tr>
       </thead>
       <tbody>{rowsView}</tbody>
