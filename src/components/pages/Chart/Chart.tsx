@@ -1,5 +1,10 @@
 import React from 'react';
+import { BarChart } from '../../BarChart';
 
 export const Chart = () => {
-  return <div>chart</div>;
+  return (
+    <>
+      <BarChart />
+    </>
+  );
 };
