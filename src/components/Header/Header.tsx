@@ -33,6 +33,11 @@ export const Header = () => {
               Statistics
             </Link>
           </li>
+          <li className={style.menuItem}>
+            <Link to="/chart" onClick={hideMobileMenu}>
+              Chart
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>
