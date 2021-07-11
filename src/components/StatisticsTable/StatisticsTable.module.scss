@@ -27,6 +27,26 @@
     text-transform: uppercase;
     cursor: pointer;
   }
+
+  .ascending,
+  .descending {
+    color: #2e93ff;
+  }
+
+  .ascending::after,
+  .descending::after {
+    position: absolute;
+    display: inline-block;
+    margin-left: 5px;
+  }
+
+  .ascending::after {
+    content: '\25B2';
+  }
+
+  .descending::after {
+    content: '\25BC';
+  }
 }
 
 @media (max-width: 650px) {

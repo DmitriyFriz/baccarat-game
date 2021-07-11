@@ -40,6 +40,13 @@ export const StatisticsTable = observer(() => {
 
   const { getSortByKey, sortKey, isSortAscending, sortedData } = useSortTable(tableData);
 
+  const defineClassName = (key: keyof Statistics) => {
+    if (key !== sortKey) {
+      return '';
+    }
+    return isSortAscending ? style.ascending : style.descending;
+  };
+
   const rowsView = sortedData.map((statistics) => (
     <Row statistics={statistics} key={statistics.timestamp} />
   ));
@@ -49,11 +56,27 @@ export const StatisticsTable = observer(() => {
       <caption>Statistics</caption>
       <thead>
         <tr>
-          <th onClick={() => getSortByKey('playerScore')}>player</th>
-          <th onClick={() => getSortByKey('bankerScore')}>banker</th>
-          <th onClick={() => getSortByKey('betsAmount')}>bet</th>
-          <th onClick={() => getSortByKey('reward')}>reward</th>
-          <th onClick={() => getSortByKey('timestamp')}>date</th>
+          <th
+            className={defineClassName('playerScore')}
+            onClick={() => getSortByKey('playerScore')}
+          >
+            player
+          </th>
+          <th
+            className={defineClassName('bankerScore')}
+            onClick={() => getSortByKey('bankerScore')}
+          >
+            banker
+          </th>
+          <th className={defineClassName('betsAmount')} onClick={() => getSortByKey('betsAmount')}>
+            bet
+          </th>
+          <th className={defineClassName('reward')} onClick={() => getSortByKey('reward')}>
+            reward
+          </th>
+          <th className={defineClassName('timestamp')} onClick={() => getSortByKey('timestamp')}>
+            date
+          </th>
         </tr>
       </thead>
       <tbody>{rowsView}</tbody>
