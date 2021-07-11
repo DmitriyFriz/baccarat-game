@@ -4,16 +4,9 @@ import { observer } from 'mobx-react-lite';
 import { useStore } from '../../store';
 import { Statistics } from '../../common/types';
 import { useSortTable } from '../../hooks/useSortTable';
+import { getDate } from '../../common/utils/getDate';
 
 import style from './StatisticsTable.module.scss';
-
-const dateOptions: Intl.DateTimeFormatOptions = {
-  year: 'numeric',
-  month: 'numeric',
-  day: 'numeric',
-  hour: 'numeric',
-  minute: 'numeric',
-};
 
 interface RowProps {
   statistics: Statistics;
@@ -21,7 +14,7 @@ interface RowProps {
 
 const Row = ({ statistics }: RowProps) => {
   const { playerScore, bankerScore, betsAmount, reward, timestamp } = statistics;
-  const date = new Date(timestamp).toLocaleString(undefined, dateOptions);
+  const date = getDate(timestamp);
 
   return (
     <tr>
