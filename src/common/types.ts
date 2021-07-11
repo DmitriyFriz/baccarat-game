@@ -20,3 +20,9 @@ export interface RoundStatistics {
   betsAmount: number;
   reward: number;
 }
+
+export interface Time {
+  timestamp: number;
+}
+
+export type Statistics = RoundStatistics & Time;

@@ -13,4 +13,5 @@ const gameStore = new GameStore(dealer, bettingStore);
 export const { StoreProvider, useStore } = createContext({
   bettingStore,
   gameStore,
+  statisticsStore,
 });

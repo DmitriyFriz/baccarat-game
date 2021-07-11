@@ -1,9 +1,9 @@
 import { makeAutoObservable } from 'mobx';
-import { RoundStatistics } from '../common/types';
+import { RoundStatistics, Statistics } from '../common/types';
 import { autoSave } from './autoSave';
 
 export class StatisticsStore {
-  private statistics: RoundStatistics[] = [];
+  statistics: Statistics[] = [];
 
   constructor() {
     makeAutoObservable(this);
@@ -11,6 +11,6 @@ export class StatisticsStore {
   }
 
   addRoundStatistics(roundStatistics: RoundStatistics) {
-    this.statistics.push(roundStatistics);
+    this.statistics.push({ ...roundStatistics, timestamp: Date.now() });
   }
 }

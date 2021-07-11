@@ -1,5 +1,10 @@
 import React from 'react';
+import { StatisticsTable } from '../../StatisticsTable';
 
 export const Statistics = () => {
-  return <div>Statistics</div>;
+  return (
+    <>
+      <StatisticsTable />
+    </>
+  );
 };
