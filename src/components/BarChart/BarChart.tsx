@@ -9,12 +9,13 @@ import style from './BarChart.module.scss';
 
 export const BarChart = observer(() => {
   const statisticsStore = useStore('statisticsStore');
-  const chartData = toJS(statisticsStore.chartData).reverse();
-  console.log(chartData);
+  const chartData = toJS(statisticsStore.chartData);
 
   return (
     <div className={style.container}>
-      <Bar data={getDataConfig(chartData)} options={optionsConfig} type="bar" />
+      <div className={style.chartWrapper}>
+        <Bar data={getDataConfig(chartData)} options={optionsConfig} type="bar" />
+      </div>
     </div>
   );
 });

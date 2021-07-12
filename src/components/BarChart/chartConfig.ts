@@ -4,12 +4,15 @@ interface ChartDataItem {
 }
 
 export const getDataConfig = (chartData: ChartDataItem[]) => {
+  const labels = chartData.map(({ date }) => date);
+  const data = chartData.map(({ value }) => value);
   const colours = chartData.map(({ value }) => (value < 0 ? 'red' : 'green'));
 
   return {
+    labels,
     datasets: [
       {
-        data: chartData,
+        data,
         backgroundColor: colours,
       },
     ],
@@ -22,14 +25,14 @@ export const optionsConfig = {
       display: false,
     },
   },
-  parsing: {
-    xAxisKey: 'date',
-    yAxisKey: 'value',
-  },
   scales: {
-    yAxis: {
+    y: {
       max: 100,
       min: -100,
+    },
+    x: {
+      display: false,
+      reverse: true,
     },
   },
 };
