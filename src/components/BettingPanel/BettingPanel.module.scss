@@ -1,7 +1,13 @@
 .places {
+  position: relative;
+
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
 
   gap: 15px;
+
+  height: 200px;
+  max-width: 500px;
+  width: 100%;
 }

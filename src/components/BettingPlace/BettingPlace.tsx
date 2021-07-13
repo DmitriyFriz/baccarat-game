@@ -15,7 +15,7 @@ export const BettingPlace = observer(({ bettingName }: BettingPlaceProps) => {
   const amount = bettingStore.selectBetAmountByName(bettingName);
 
   return (
-    <label htmlFor={bettingName}>
+    <label htmlFor={bettingName} className={style.bettingContainer}>
       <input
         className={style.radio}
         id={bettingName}
@@ -27,8 +27,8 @@ export const BettingPlace = observer(({ bettingName }: BettingPlaceProps) => {
       />
       <div className={style.bet}>
         <p>{bettingName}</p>
-        <p>{ratio}:1</p>
         <p>{amount}</p>
+        <p>{ratio}:1</p>
       </div>
     </label>
   );
