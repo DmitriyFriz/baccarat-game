@@ -78,6 +78,7 @@
   }
 
   .menu.active {
+    position: fixed;
     left: 0;
     z-index: 1;
     opacity: 1;
@@ -95,5 +96,11 @@
 
   .menuItem:hover {
     border-radius: 0;
+  }
+
+  .header.active {
+    position: sticky;
+    top: 0;
+    width: 100%;
   }
 }

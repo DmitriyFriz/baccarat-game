@@ -13,7 +13,7 @@ export const Header = () => {
   const hideMobileMenu = () => setMobileMenuVisible(false);
 
   return (
-    <header className={style.header}>
+    <header className={mobileMenuVisible ? `${style.header} ${style.active}` : style.header}>
       <nav className={style.navbar}>
         <Link to="/" onClick={hideMobileMenu}>
           <Logo className={style.logo} />
