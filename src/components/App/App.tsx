@@ -10,8 +10,8 @@ import { Chart } from '../pages/Chart';
 export const App = () => {
   return (
     <BrowserRouter>
-      <Header />
       <div className={style.container}>
+        <Header />
         <Switch>
           <Route path="/" exact={true} component={Game} />
           <Route path="/statistics" component={Statistics} />
