@@ -43,6 +43,10 @@ export class BettingStore {
     }
   }
 
+  selectBetByName(name: BettingName) {
+    return this.bets[name];
+  }
+
   selectBetAmountByName(name: BettingName) {
     return this.bets[name].reduce((amount, value) => amount + value, 0);
   }

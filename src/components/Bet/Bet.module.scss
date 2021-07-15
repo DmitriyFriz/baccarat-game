@@ -1,0 +1,17 @@
+.chipPlace {
+  position: relative;
+  width: 70px;
+  height: 70px;
+}
+
+.chipContainer {
+  position: absolute;
+}
+
+.chipContainer:nth-child(2n) {
+  transform: translate(3px, 3px);
+}
+
+.chipContainer:nth-child(3n) {
+  transform: translate(-3px, -3px);
+}
