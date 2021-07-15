@@ -69,6 +69,7 @@
     "@typescript-eslint/no-shadow": ["error"],
     "no-empty-function": ["error", { "allow": ["constructors"] }],
     "class-methods-use-this": "off",
+    "react/require-default-props": "off",
     "no-param-reassign": [
       "error",
       { "props": true, "ignorePropertyModificationsFor": ["state", "draft", "draftState"] }

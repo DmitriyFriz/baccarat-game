@@ -22,7 +22,7 @@ export class GameStore {
     makeAutoObservable(this, {
       startGame: action.bound,
       continueGame: action.bound,
-      resetCards: action.bound,
+      resetElements: action.bound,
       finishGame: action.bound,
     });
   }
@@ -32,6 +32,7 @@ export class GameStore {
     this.playerScore = 0;
     this.bankerScore = 0;
     this.isGame = true;
+    this.bettingStore.lockBets();
   }
 
   continueGame() {
@@ -80,14 +81,16 @@ export class GameStore {
     }
   }
 
-  resetCards() {
+  resetElements() {
     this.playerCards = [];
     this.bankerCards = [];
     this.playerScore = null;
     this.bankerScore = null;
+    this.bettingStore.restBets();
   }
 
   finishGame() {
     this.isGame = false;
+    this.bettingStore.unlockBets();
   }
 }

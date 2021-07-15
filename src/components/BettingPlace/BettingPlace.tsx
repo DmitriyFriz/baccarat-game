@@ -30,7 +30,7 @@ export const BettingPlace = observer(({ bettingName }: BettingPlaceProps) => {
       />
       <div className={style.bet}>
         <p>{bettingName}</p>
-        {bet.length > 0 ? <Bet bet={bet} /> : <p>{ratio}:1</p>}
+        {bet.length > 0 ? <Bet bet={bet} bettingName={bettingName} /> : <p>{ratio}:1</p>}
         <p>{amount}</p>
       </div>
     </label>

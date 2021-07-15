@@ -6,12 +6,7 @@ export const CancelBet = observer(() => {
   const bettingStore = useStore('bettingStore');
 
   return (
-    <button
-      type="button"
-      className="button"
-      onClick={bettingStore.cancelBet}
-      disabled={bettingStore.disableCancelBet}
-    >
+    <button type="button" className="button" disabled={bettingStore.disableCancelBet}>
       cancel bet
     </button>
   );

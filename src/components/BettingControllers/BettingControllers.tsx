@@ -12,9 +12,13 @@ export const BettingControllers = observer(() => {
   const { currentBalance } = bettingStore;
 
   const possibleChips = chipValues.filter((value) => value <= currentBalance);
-  const chipsView = possibleChips.map((possibleValue) => (
-    <Chip value={possibleValue} key={possibleValue} />
-  ));
+  const chipsView = possibleChips.map((value) => {
+    return (
+      <div key={value} className={style.chipContainer}>
+        <Chip value={value} onClick={bettingStore.addBet} />;
+      </div>
+    );
+  });
 
   return (
     <div className={style.container}>

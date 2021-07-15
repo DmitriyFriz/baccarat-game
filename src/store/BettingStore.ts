@@ -12,18 +12,22 @@ export class BettingStore {
   };
   reward: number | null = null;
   commissionForBanker: number = 5;
+  isLockedBet: boolean = false;
 
   constructor(private balance: number, private statisticStore: StatisticsStore) {
     makeAutoObservable(this, {
       changeBet: action.bound,
       addBet: action.bound,
       cancelBet: action.bound,
-      restBets: action.bound,
+      selectBetByName: action.bound,
+      selectBetAmountByName: action.bound,
     });
   }
 
-  changeBet(bet: BettingName | null) {
-    this.selectedBet = bet;
+  changeBet(name: BettingName) {
+    if (!this.isLockedBet) {
+      this.selectedBet = name;
+    }
   }
 
   addBet(value: ChipValue) {
@@ -33,9 +37,9 @@ export class BettingStore {
     }
   }
 
-  cancelBet() {
-    if (this.selectedBet !== null) {
-      const value = this.bets[this.selectedBet].pop();
+  cancelBet(name: BettingName) {
+    if (this.selectedBet !== null && name === this.selectedBet) {
+      const value = this.bets[name].pop();
 
       if (value !== undefined) {
         this.balance += value;
@@ -49,6 +53,11 @@ export class BettingStore {
 
   selectBetAmountByName(name: BettingName) {
     return this.bets[name].reduce((amount, value) => amount + value, 0);
+  }
+
+  lockBets() {
+    this.isLockedBet = true;
+    this.selectedBet = null;
   }
 
   handleGameResult(wonBet: BettingName, playerScore: number, bankerScore: number) {
@@ -75,11 +84,15 @@ export class BettingStore {
     Object.values(this.bets).forEach((bet) => bet.splice(0));
   }
 
+  unlockBets() {
+    this.isLockedBet = false;
+  }
+
   get currentBalance() {
     return this.balance;
   }
 
-  get allBetsAmount() {
+  private get allBetsAmount() {
     return Object.keys(this.bets).reduce(
       (amount, bettingName) => amount + this.selectBetAmountByName(bettingName as BettingName),
       0

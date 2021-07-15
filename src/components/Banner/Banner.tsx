@@ -39,10 +39,7 @@ export const Banner = observer(() => {
       unmountOnExit
       nodeRef={nodeRef}
       onEntered={() => setVisible(false)}
-      onExited={() => {
-        bettingStore.restBets();
-        gameStore.resetCards();
-      }}
+      onExited={gameStore.resetElements}
     >
       <div className={style.bannerContainer} ref={nodeRef}>
         <BannerIcon className={bannerClassName} />

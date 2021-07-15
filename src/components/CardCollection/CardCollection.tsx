@@ -35,9 +35,7 @@ export const CardCollection = observer(
               key={key}
               nodeRef={nodeRef}
               appear={true}
-              onEntered={() => {
-                gameStore.continueGame();
-              }}
+              onEntered={gameStore.continueGame}
               onExited={() => {
                 if (index === 0 && isBankerCollection) {
                   gameStore.finishGame();
