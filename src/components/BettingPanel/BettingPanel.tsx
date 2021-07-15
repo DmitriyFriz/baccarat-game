@@ -16,15 +16,18 @@ export const BettingPanel = observer(() => {
   return (
     <CSSTransition
       classNames={{
+        appear: style.panelShow,
         enterActive: style.panelShow,
         exitActive: style.panelHidden,
       }}
       in={!bettingStore.isLockedBet}
       timeout={{
-        enter: 3000,
+        enter: 1000,
         exit: 700,
       }}
       unmountOnExit
+      mountOnEnter
+      appear={true}
       nodeRef={nodeRef}
     >
       <div className={style.panel} ref={nodeRef}>
