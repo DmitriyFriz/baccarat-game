@@ -10,6 +10,8 @@ export const DealButton = observer(() => {
 
   const isDisable = !bettingStore.isExistedBet || gameStore.isGame;
 
+  if (isDisable) return null;
+
   return (
     <button
       type="button"
