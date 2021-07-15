@@ -52,6 +52,7 @@ $cardWidth: 80px;
   .cardShowed {
     &:nth-child(1) {
       animation-name: player-dealing-1;
+      animation-delay: 1100ms;
     }
 
     &:nth-child(2) {

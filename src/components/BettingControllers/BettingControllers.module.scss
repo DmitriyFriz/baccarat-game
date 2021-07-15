@@ -11,11 +11,23 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
+
+  @media (max-width: 400px) {
+    gap: 6px;
+  }
 }
 
 .chipContainer {
   width: 70px;
   font-size: 0;
+
+  @media (max-width: 500px) {
+    width: 50px;
+  }
+
+  @media (max-width: 400px) {
+    width: 45px;
+  }
 }
 
 .balance {
