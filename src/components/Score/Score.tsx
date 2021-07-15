@@ -1,5 +1,5 @@
-import React from 'react';
-
+import React, { useRef } from 'react';
+import { CSSTransition } from 'react-transition-group';
 import style from './Score.module.scss';
 
 interface ScoreProps {
@@ -9,12 +9,28 @@ interface ScoreProps {
 }
 
 export const Score = ({ name, score, className }: ScoreProps) => {
-  const opacity = score === null ? 0 : 1;
+  const nodeRef = useRef(null);
 
   return (
-    <div style={{ opacity }} className={className}>
-      <div className={style.name}>{name}</div>
-      <div className={style.score}>{score}</div>
-    </div>
+    <CSSTransition
+      classNames={{
+        appear: style.scoreInvisible,
+        enter: style.scoreInvisible,
+        enterActive: style.showScore,
+        exitActive: style.hideScore,
+      }}
+      in={score !== null}
+      timeout={{
+        enter: 1800,
+        exit: 400,
+      }}
+      unmountOnExit
+      nodeRef={nodeRef}
+    >
+      <div className={className} ref={nodeRef}>
+        <div className={style.name}>{name}</div>
+        <div className={style.score}>{score}</div>
+      </div>
+    </CSSTransition>
   );
 };

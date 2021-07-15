@@ -3,7 +3,6 @@ import { observer } from 'mobx-react-lite';
 import { useStore } from '../../store';
 import { chipValues } from '../../common/gameData';
 import { Chip } from '../Chip';
-import { CancelBet } from '../CancelBet';
 
 import style from './BettingControllers.module.scss';
 
@@ -24,7 +23,6 @@ export const BettingControllers = observer(() => {
     <div className={style.container}>
       <div className={style.balance}>{currentBalance}</div>
       <div className={style.chipsArea}>{chipsView}</div>
-      <CancelBet />
     </div>
   );
 });

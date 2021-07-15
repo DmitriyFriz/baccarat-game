@@ -26,8 +26,7 @@ export const BettingPanel = observer(() => {
         exit: 700,
       }}
       unmountOnExit
-      mountOnEnter
-      appear={true}
+      appear
       nodeRef={nodeRef}
     >
       <div className={style.panel} ref={nodeRef}>
