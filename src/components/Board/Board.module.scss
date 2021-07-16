@@ -24,6 +24,10 @@ $deckRatio: 1.06;
   text-overflow: ellipsis;
   white-space: nowrap;
   max-width: 70%;
+
+  @media (max-width: 400px) {
+    font-size: 28px;
+  }
 }
 
 .deck {
@@ -54,6 +58,10 @@ $deckRatio: 1.06;
   z-index: 12;
 
   font-size: 20px;
+
+  @media (max-width: 400px) {
+    font-size: 18px;
+  }
 }
 
 .playerScore {

@@ -3,6 +3,7 @@
   top: 0;
   right: 50%;
   transform: translate(50%, 0);
+  z-index: 20;
 
   width: 300px;
   font-size: 0;
@@ -21,11 +22,11 @@
 }
 
 .bannerWin {
-  fill: gold;
+  fill: #dab909cc;
 }
 
 .bannerLose {
-  fill: gray;
+  fill: #112514c4;
 }
 
 .bannerShowed {
