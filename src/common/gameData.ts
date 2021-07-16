@@ -40,3 +40,5 @@ export enum BannerPhrase {
   Win = 'you win',
   Lose = 'you lose',
 }
+
+export const startBalance = 1000;

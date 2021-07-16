@@ -6,6 +6,7 @@ import { Header } from '../Header';
 import { Game } from '../pages/Game';
 import { Statistics } from '../pages/Statistics';
 import { Chart } from '../pages/Chart';
+import { Settings } from '../pages/Settings';
 
 export const App = () => {
   return (
@@ -16,6 +17,7 @@ export const App = () => {
           <Route path="/" exact={true} component={Game} />
           <Route path="/statistics" component={Statistics} />
           <Route path="/chart" component={Chart} />
+          <Route path="/settings" component={Settings} />
         </Switch>
       </div>
     </BrowserRouter>

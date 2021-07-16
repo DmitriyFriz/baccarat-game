@@ -37,7 +37,7 @@ export const BarChart = observer(() => {
           }
         }}
       >
-        Reset Zoom
+        reset zoom
       </button>
     </>
   );

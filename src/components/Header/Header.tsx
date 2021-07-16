@@ -42,6 +42,11 @@ export const Header = observer(() => {
               Chart
             </Link>
           </li>
+          <li className={style.menuItem}>
+            <Link to="/settings" onClick={hideMobileMenu}>
+              Settings
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>
