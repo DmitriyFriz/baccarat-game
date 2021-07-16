@@ -21,7 +21,6 @@ export const BettingControllers = observer(() => {
 
   return (
     <div className={style.container}>
-      <div className={style.balance}>{currentBalance}</div>
       <div className={style.chipsArea}>{chipsView}</div>
     </div>
   );

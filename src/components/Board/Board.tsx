@@ -11,9 +11,12 @@ import style from './Board.module.scss';
 
 export const Board = observer(() => {
   const gameStore = useStore('gameStore');
+  const bettingStore = useStore('bettingStore');
+  const { currentBalance } = bettingStore;
 
   return (
     <div className={style.board}>
+      <div className={style.balance}>{currentBalance}$</div>
       <Banner />
       <Score name="player" score={gameStore.playerScore} className={style.playerScore} />
       <Score name="banker" score={gameStore.bankerScore} className={style.bankerScore} />

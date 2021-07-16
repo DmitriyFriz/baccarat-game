@@ -30,10 +30,14 @@ export const BettingPanel = observer(() => {
       nodeRef={nodeRef}
     >
       <div className={style.panel} ref={nodeRef}>
-        <div className={style.places}>
-          <BettingPlace bettingName={BettingName.Player} />
-          <BettingPlace bettingName={BettingName.Tie} />
-          <BettingPlace bettingName={BettingName.Banker} />
+        <div className={style.placesWrapper}>
+          <div className={style.placeContainer}>
+            <div className={style.places}>
+              <BettingPlace bettingName={BettingName.Player} />
+              <BettingPlace bettingName={BettingName.Tie} />
+              <BettingPlace bettingName={BettingName.Banker} />
+            </div>
+          </div>
         </div>
         <BettingControllers />
       </div>
