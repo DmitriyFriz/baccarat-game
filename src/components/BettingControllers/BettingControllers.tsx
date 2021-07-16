@@ -8,9 +8,9 @@ import style from './BettingControllers.module.scss';
 
 export const BettingControllers = observer(() => {
   const bettingStore = useStore('bettingStore');
-  const { currentBalance } = bettingStore;
+  const { balance } = bettingStore;
 
-  const possibleChips = chipValues.filter((value) => value <= currentBalance);
+  const possibleChips = chipValues.filter((value) => value <= balance);
   const chipsView = possibleChips.map((value) => {
     return (
       <div key={value} className={style.chipContainer}>

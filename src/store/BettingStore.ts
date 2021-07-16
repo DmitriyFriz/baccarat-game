@@ -2,6 +2,7 @@ import { makeAutoObservable, action } from 'mobx';
 import { Bets, ChipValue } from '../common/types';
 import { BettingName, ratioByBettingName } from '../common/gameData';
 import { StatisticsStore } from './StatisticsStore';
+import { autoSaveKeys } from './autoSave';
 
 export class BettingStore {
   selectedBet: BettingName | null = null;
@@ -14,7 +15,7 @@ export class BettingStore {
   commissionForBanker: number = 5;
   isLockedBet: boolean = false;
 
-  constructor(private balance: number, private statisticStore: StatisticsStore) {
+  constructor(public balance: number, private statisticStore: StatisticsStore) {
     makeAutoObservable(this, {
       changeBet: action.bound,
       addBet: action.bound,
@@ -22,6 +23,7 @@ export class BettingStore {
       selectBetByName: action.bound,
       selectBetAmountByName: action.bound,
     });
+    autoSaveKeys(this, 'betting', ['balance']);
   }
 
   changeBet(name: BettingName) {
@@ -86,10 +88,6 @@ export class BettingStore {
 
   unlockBets() {
     this.isLockedBet = false;
-  }
-
-  get currentBalance() {
-    return this.balance;
   }
 
   private get allBetsAmount() {

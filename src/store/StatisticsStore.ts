@@ -1,14 +1,14 @@
 import { makeAutoObservable } from 'mobx';
 import { RoundStatistics, Statistics } from '../common/types';
 import { getDate } from '../common/utils/getDate';
-import { autoSave } from './autoSave';
+import { autoSaveStore } from './autoSave';
 
 export class StatisticsStore {
   statistics: Statistics[] = [];
 
   constructor() {
     makeAutoObservable(this);
-    autoSave(this, 'statistics');
+    autoSaveStore(this, 'statistics');
   }
 
   addRoundStatistics(roundStatistics: RoundStatistics) {
