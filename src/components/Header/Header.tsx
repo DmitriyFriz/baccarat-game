@@ -2,11 +2,15 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { observer } from 'mobx-react-lite';
+import { useStore } from '../../store';
 import { ReactComponent as Logo } from '../../assets/img/logo.svg';
 
 import style from './Header.module.scss';
 
-export const Header = () => {
+export const Header = observer(() => {
+  const gameStore = useStore('gameStore');
+
   const [mobileMenuVisible, setMobileMenuVisible] = useState(false);
 
   const switchVisible = () => setMobileMenuVisible(!mobileMenuVisible);
@@ -14,7 +18,7 @@ export const Header = () => {
 
   return (
     <header className={mobileMenuVisible ? `${style.header} ${style.active}` : style.header}>
-      <nav className={style.navbar}>
+      <nav className={gameStore.isGame ? `${style.navbar} ${style.locked}` : style.navbar}>
         <Link to="/" onClick={hideMobileMenu}>
           <Logo className={style.logo} />
         </Link>
@@ -42,4 +46,4 @@ export const Header = () => {
       </nav>
     </header>
   );
-};
+});

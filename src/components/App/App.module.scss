@@ -39,24 +39,26 @@ body {
   }
 
   .button {
-    height: 30px;
-    width: 100px;
-    padding: 3px;
+    min-height: 30px;
+    min-width: 100px;
+    padding: 5px;
 
-    transition: opacity 0.2s ease-out;
+    transition: all 0.2s ease-out;
 
-    border-radius: 3px;
-    border: 1px solid #218fbe;
+    border-radius: 5px;
+    border: 1px solid #1125147a;
     outline: none;
 
-    background-color: #c1e7f7;
+    background-color: #2e93ff;
     cursor: pointer;
 
     text-transform: uppercase;
+    font-size: 14px;
+    color: #fff;
 
     &:hover {
       transition: box-shadow 0.2s;
-      box-shadow: 0 0 3px #181c22;
+      box-shadow: 0 0 7px #181c22;
     }
 
     &:disabled {

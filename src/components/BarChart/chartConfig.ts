@@ -8,7 +8,7 @@ const zoomFactor = 1.1;
 export const getChartConfig = (chartData: ChartDataItem[]) => {
   const labels = chartData.map(({ date }) => date);
   const data = chartData.map(({ value }) => value);
-  const colours = chartData.map(({ value }) => (value < 0 ? '#ff6347' : '#7ae67a'));
+  const colours = chartData.map(({ value }) => (value < 0 ? '#ff6347' : '#dabb09'));
 
   const minZoom = Math.ceil(Math.min(...data) * zoomFactor);
   const maxZoom = Math.ceil(Math.max(...data) * zoomFactor);
