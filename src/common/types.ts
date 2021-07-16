@@ -1,4 +1,4 @@
-import { BettingName, chipValues, cardSuits, cardValues } from './gameData';
+import { BettingName, chipValues, cardSuits, cardValues, minScore } from './gameData';
 
 export type ChipValue = typeof chipValues[number];
 
@@ -26,3 +26,5 @@ export interface Time {
 }
 
 export type Statistics = RoundStatistics & Time;
+
+export type MinScore = typeof minScore[number];

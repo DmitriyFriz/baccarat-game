@@ -1,7 +1,7 @@
 import { action, makeAutoObservable } from 'mobx';
-import { PlayingCard } from '../common/types';
+import { PlayingCard, MinScore } from '../common/types';
 import {
-  minScore,
+  minScoreForStart,
   prettyScore,
   minCountCards,
   maxCountCards,
@@ -17,6 +17,8 @@ export class GameStore {
   playerScore: number | null = null;
   bankerScore: number | null = null;
   isGame: boolean = false;
+  playerMinScore: MinScore = minScoreForStart;
+  bankerMinScore: MinScore = minScoreForStart;
 
   constructor(private dealer: Dealer, private bettingStore: BettingStore) {
     makeAutoObservable(this, {
@@ -24,7 +26,17 @@ export class GameStore {
       continueGame: action.bound,
       resetElements: action.bound,
       finishGame: action.bound,
+      changePlayerMinScore: action.bound,
+      changeBankerMinScore: action.bound,
     });
+  }
+
+  changePlayerMinScore(score: MinScore) {
+    this.playerMinScore = score;
+  }
+
+  changeBankerMinScore(score: MinScore) {
+    this.bankerMinScore = score;
   }
 
   startGame() {
@@ -55,12 +67,12 @@ export class GameStore {
       return;
     }
 
-    if (this.playerCards.length < maxCountCards && this.playerScore < minScore) {
+    if (this.playerCards.length < maxCountCards && this.playerScore < this.playerMinScore) {
       this.playerCards.push(this.dealer.card);
       return;
     }
 
-    if (this.bankerCards.length < maxCountCards && this.bankerScore < minScore) {
+    if (this.bankerCards.length < maxCountCards && this.bankerScore < this.bankerMinScore) {
       this.bankerCards.push(this.dealer.card);
       return;
     }

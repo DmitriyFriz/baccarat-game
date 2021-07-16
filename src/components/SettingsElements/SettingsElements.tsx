@@ -1,11 +1,32 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import { observer } from 'mobx-react-lite';
 import { useStore } from '../../store';
+import { MinScore } from '../../common/types';
+import { minScore } from '../../common/gameData';
+import { Select } from '../Select';
 
 import style from './SettingsElements.module.scss';
 
-export const SettingsElements = () => {
+export const SettingsElements = observer(() => {
   const bettingStore = useStore('bettingStore');
   const statisticsStore = useStore('statisticsStore');
+  const gameStore = useStore('gameStore');
+
+  const { changePlayerMinScore, changeBankerMinScore } = gameStore;
+
+  const handelChangePlayerMinScore = useCallback(
+    (value) => {
+      changePlayerMinScore(+value as MinScore);
+    },
+    [changePlayerMinScore]
+  );
+
+  const handelChangeBankerMinScore = useCallback(
+    (value) => {
+      changeBankerMinScore(+value as MinScore);
+    },
+    [changeBankerMinScore]
+  );
 
   return (
     <div className={style.settings}>
@@ -23,6 +44,18 @@ export const SettingsElements = () => {
       >
         reset statistics
       </button>
+      <Select
+        data={minScore}
+        onChange={handelChangePlayerMinScore}
+        currentValue={gameStore.playerMinScore}
+        className="123"
+      />
+      <Select
+        data={minScore}
+        onChange={handelChangeBankerMinScore}
+        currentValue={gameStore.bankerMinScore}
+        className="123"
+      />
     </div>
   );
-};
+});

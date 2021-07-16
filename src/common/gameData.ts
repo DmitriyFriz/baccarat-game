@@ -30,8 +30,9 @@ export const cardValues = [
 ] as const;
 
 export const basicScore = 10;
-export const minScore = 6;
 export const prettyScore: ReadonlyArray<number> = [8, 9];
+export const minScore = [4, 5, 6] as const;
+export const minScoreForStart = 6;
 
 export const minCountCards = 2;
 export const maxCountCards = 3;
