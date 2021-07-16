@@ -1,6 +1,11 @@
 @import './animation';
 
-$cardWidth: 80px;
+$cardRatio: 190 / 140;
+
+$cardWidthL: 100px;
+$cardWidthM: 85px;
+$cardWidthS: 75px;
+$cardWidthXS: 65px;
 
 .bankerCollection,
 .playerCollection {
@@ -16,10 +21,25 @@ $cardWidth: 80px;
   position: absolute;
   top: 100%;
 
-  width: $cardWidth;
-  height: $cardWidth * (190/ 140);
-  perspective: 1000px;
+  width: $cardWidthL;
+  height: $cardWidthL * $cardRatio;
 
+  @media (max-width: 900px) {
+    width: $cardWidthM;
+    height: $cardWidthM * $cardRatio;
+  }
+
+  @media (max-width: 500px) {
+    width: $cardWidthS;
+    height: $cardWidthS * $cardRatio;
+  }
+
+  @media (max-width: 370px) {
+    width: $cardWidthXS;
+    height: $cardWidthXS * $cardRatio;
+  }
+
+  perspective: 1000px;
   background-color: transparent;
   font-size: 0;
 

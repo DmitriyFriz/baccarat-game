@@ -21,9 +21,9 @@
 }
 
 .chipContainer:nth-child(2n) {
-  transform: translate(3px, 3px);
+  transform: translate(5%, 5%);
 }
 
 .chipContainer:nth-child(3n) {
-  transform: translate(-3px, -3px);
+  transform: translate(-5%, -5%);
 }
