@@ -44,18 +44,24 @@ export const SettingsElements = observer(() => {
       >
         reset statistics
       </button>
-      <Select
-        data={minScore}
-        onChange={handelChangePlayerMinScore}
-        currentValue={gameStore.playerMinScore}
-        className="123"
-      />
-      <Select
-        data={minScore}
-        onChange={handelChangeBankerMinScore}
-        currentValue={gameStore.bankerMinScore}
-        className="123"
-      />
+      <div className={style.selectorContainer}>
+        <span>Min player score:</span>
+        <Select
+          data={minScore}
+          onChange={handelChangePlayerMinScore}
+          currentValue={gameStore.playerMinScore}
+          className={style.selector}
+        />
+      </div>
+      <div className={style.selectorContainer}>
+        <span>Min banker score:</span>
+        <Select
+          data={minScore}
+          onChange={handelChangeBankerMinScore}
+          currentValue={gameStore.bankerMinScore}
+          className={style.selector}
+        />
+      </div>
     </div>
   );
 });
