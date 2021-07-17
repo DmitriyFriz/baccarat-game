@@ -2,19 +2,18 @@ import React from 'react';
 import { observer } from 'mobx-react-lite';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { useStore } from '../../store';
-import { ChipValue } from '../../common/types';
 import { BettingName } from '../../common/gameData';
 import { Chip } from '../Chip';
 
 import style from './Bet.module.scss';
 
 interface BetProps {
-  bet: ChipValue[];
   bettingName: BettingName;
 }
 
-export const Bet = observer(({ bet, bettingName }: BetProps) => {
+export const Bet = observer(({ bettingName }: BetProps) => {
   const bettingStore = useStore('bettingStore');
+  const bet = bettingStore.selectBetByName(bettingName);
 
   return (
     <TransitionGroup

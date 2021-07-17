@@ -1,5 +1,4 @@
 import React from 'react';
-import { toJS } from 'mobx';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '../../store';
 import { BettingName, ratioByBettingName } from '../../common/gameData';
@@ -16,8 +15,6 @@ export const BettingPlace = observer(({ bettingName }: BettingPlaceProps) => {
   const ratio = ratioByBettingName[bettingName];
   const amount = bettingStore.selectBetAmountByName(bettingName);
 
-  const bet = toJS(bettingStore.selectBetByName(bettingName));
-
   return (
     <label htmlFor={bettingName} className={style.bettingContainer}>
       <input
@@ -31,7 +28,7 @@ export const BettingPlace = observer(({ bettingName }: BettingPlaceProps) => {
       />
       <div className={style.bet}>
         <p>{bettingName}</p>
-        <Bet bet={bet} bettingName={bettingName} />
+        <Bet bettingName={bettingName} />
         <p className={style.ratio}>{ratio}:1</p>
         <p className={style.amount}>{amount}</p>
       </div>

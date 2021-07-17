@@ -1,4 +1,5 @@
 import { makeAutoObservable, action } from 'mobx';
+import { computedFn } from 'mobx-utils';
 import { Bets, ChipValue } from '../common/types';
 import { BettingName, ratioByBettingName, startBalance } from '../common/gameData';
 import { StatisticsStore } from './StatisticsStore';
@@ -22,7 +23,6 @@ export class BettingStore {
       addBet: action.bound,
       cancelBet: action.bound,
       selectBetByName: action.bound,
-      selectBetAmountByName: action.bound,
       resetBalance: action.bound,
     });
     autoSaveKeys(this, 'betting', ['balance']);
@@ -55,9 +55,9 @@ export class BettingStore {
     return this.bets[name];
   }
 
-  selectBetAmountByName(name: BettingName) {
+  selectBetAmountByName = computedFn((name: BettingName) => {
     return this.bets[name].reduce((amount, value) => amount + value, 0);
-  }
+  });
 
   lockBets() {
     this.isLockedBet = true;
