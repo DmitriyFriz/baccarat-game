@@ -5,6 +5,7 @@
   width: 100%;
   max-width: 1200px;
   table-layout: fixed;
+  box-shadow: 0 1px 7px 2px rgba(0, 0, 0, 0.14);
 
   caption {
     font-size: 24px;
@@ -51,6 +52,8 @@
 
 @media (max-width: 650px) {
   .table {
+    box-shadow: none;
+
     caption {
       font-size: 20px;
     }
@@ -68,6 +71,8 @@
       margin-bottom: 10px;
       border-bottom: 3px solid #cecece;
       border-radius: 8px;
+
+      box-shadow: 0 1px 7px 2px rgba(0, 0, 0, 0.14);
     }
 
     th,

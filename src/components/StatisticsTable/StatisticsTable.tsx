@@ -46,7 +46,6 @@ export const StatisticsTable = observer(() => {
 
   return (
     <table className={style.table}>
-      <caption>Statistics</caption>
       <thead>
         <tr>
           <th

@@ -30,7 +30,7 @@ export const BarChart = observer(() => {
       </div>
       <button
         type="button"
-        className={`button ${style.resetButton}`}
+        className="button"
         onClick={() => {
           if (chartRef.current !== null) {
             chartRef.current.resetZoom();

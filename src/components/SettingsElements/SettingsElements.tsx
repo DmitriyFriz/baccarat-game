@@ -30,20 +30,6 @@ export const SettingsElements = observer(() => {
 
   return (
     <div className={style.settings}>
-      <button
-        type="button"
-        className={`button ${style.resetButton}`}
-        onClick={bettingStore.resetBalance}
-      >
-        reset balance
-      </button>
-      <button
-        type="button"
-        className={`button ${style.resetButton}`}
-        onClick={statisticsStore.resetStatistics}
-      >
-        reset statistics
-      </button>
       <div className={style.selectorContainer}>
         <span>Min player score:</span>
         <Select
@@ -62,6 +48,20 @@ export const SettingsElements = observer(() => {
           className={style.selector}
         />
       </div>
+      <button
+        type="button"
+        className={`button ${style.resetButton}`}
+        onClick={bettingStore.resetBalance}
+      >
+        reset balance
+      </button>
+      <button
+        type="button"
+        className={`button ${style.resetButton}`}
+        onClick={statisticsStore.resetStatistics}
+      >
+        reset statistics
+      </button>
     </div>
   );
 });

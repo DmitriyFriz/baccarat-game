@@ -2,5 +2,9 @@ import React from 'react';
 import { SettingsElements } from '../../SettingsElements';
 
 export const Settings = () => {
-  return <SettingsElements />;
+  return (
+    <div className="page">
+      <SettingsElements />
+    </div>
+  );
 };
