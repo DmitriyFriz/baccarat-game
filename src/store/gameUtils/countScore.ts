@@ -1,5 +1,5 @@
-import { PlayingCard, CardValue } from '../common/types';
-import { cardValues, basicScore } from '../common/gameData';
+import { PlayingCard, CardValue } from '../../common/types';
+import { cardValues, basicScore } from '../../common/gameData';
 
 export const countScore = (cards: PlayingCard[]) => {
   const fullScore = cards.reduce((amount, { value }) => amount + countScoreByCardValue(value), 0);

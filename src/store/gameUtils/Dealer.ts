@@ -1,5 +1,5 @@
-import { PlayingCard } from '../common/types';
-import { cardSuits, cardValues } from '../common/gameData';
+import { PlayingCard } from '../../common/types';
+import { cardSuits, cardValues } from '../../common/gameData';
 
 export class Dealer {
   private readonly deck: PlayingCard[] = this.createDeck();

@@ -1,7 +1,7 @@
 import { action, makeAutoObservable } from 'mobx';
 import { RoundStatistics, Statistics } from '../common/types';
 import { getDate } from '../common/utils/getDate';
-import { autoSaveStore } from './autoSave';
+import { autoSaveStore } from './storeUtils/autoSave';
 
 export class StatisticsStore {
   statistics: Statistics[] = [];

@@ -7,9 +7,9 @@ import {
   maxCountCards,
   BettingName,
 } from '../common/gameData';
-import { Dealer } from './Dealer';
+import { Dealer } from './gameUtils/Dealer';
 import { BettingStore } from './BettingStore';
-import { countScore } from './countScore';
+import { countScore } from './gameUtils/countScore';
 
 export class GameStore {
   playerCards: PlayingCard[] = [];

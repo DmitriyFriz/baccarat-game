@@ -1,7 +1,7 @@
-import { createContext } from './storeUtils';
+import { createContext } from './storeUtils/storeUtils';
 import { BettingStore } from './BettingStore';
 import { GameStore } from './GameStore';
-import { Dealer } from './Dealer';
+import { Dealer } from './gameUtils/Dealer';
 import { StatisticsStore } from './StatisticsStore';
 
 const statisticsStore = new StatisticsStore();

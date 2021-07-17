@@ -2,7 +2,7 @@ import { makeAutoObservable, action } from 'mobx';
 import { Bets, ChipValue } from '../common/types';
 import { BettingName, ratioByBettingName, startBalance } from '../common/gameData';
 import { StatisticsStore } from './StatisticsStore';
-import { autoSaveKeys } from './autoSave';
+import { autoSaveKeys } from './storeUtils/autoSave';
 
 export class BettingStore {
   balance: number = startBalance;
