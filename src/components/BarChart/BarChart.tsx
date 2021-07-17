@@ -30,6 +30,7 @@ export const BarChart = observer(() => {
 
   return (
     <>
+      <p className={style.label}>profit per round</p>
       <div className={style.chartWrapper}>
         <Bar ref={chartRef} data={dataConfig} options={optionsConfig} type="bar" />
       </div>

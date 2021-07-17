@@ -1,3 +1,5 @@
+import { TooltipItem, ChartTypeRegistry } from 'chart.js';
+
 interface ChartDataItem {
   value: number;
   date: string;
@@ -36,6 +38,15 @@ const getOptionsConfig = (minZoom: number, maxZoom: number) => ({
     legend: {
       display: false,
     },
+
+    tooltip: {
+      callbacks: {
+        label(item: TooltipItem<keyof Pick<ChartTypeRegistry, 'bar'>>) {
+          return `Profit: ${item.formattedValue}$`;
+        },
+      },
+    },
+
     zoom: {
       pan: {
         enabled: true,
