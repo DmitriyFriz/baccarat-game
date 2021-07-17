@@ -47,11 +47,19 @@
   align-items: center;
   padding: 0.5rem 1rem;
 
+  a {
+    padding-bottom: 2px;
+  }
+
   &:hover {
     background-color: #2e93ff;
     border-radius: 4px;
     transition: background-color 0.2s ease-out;
   }
+}
+
+.activeLink {
+  border-bottom: 1px solid #fff;
 }
 
 .menuIcon {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { observer } from 'mobx-react-lite';
@@ -28,24 +28,29 @@ export const Header = observer(() => {
         </button>
         <ul className={mobileMenuVisible ? `${style.menu} ${style.active}` : style.menu}>
           <li className={style.menuItem}>
-            <Link to="/" onClick={hideMobileMenu}>
+            <NavLink
+              to="/"
+              exact={true}
+              onClick={hideMobileMenu}
+              activeClassName={style.activeLink}
+            >
               Game
-            </Link>
+            </NavLink>
           </li>
           <li className={style.menuItem}>
-            <Link to="/statistics" onClick={hideMobileMenu}>
+            <NavLink to="/statistics" onClick={hideMobileMenu} activeClassName={style.activeLink}>
               Statistics
-            </Link>
+            </NavLink>
           </li>
           <li className={style.menuItem}>
-            <Link to="/chart" onClick={hideMobileMenu}>
+            <NavLink to="/chart" onClick={hideMobileMenu} activeClassName={style.activeLink}>
               Chart
-            </Link>
+            </NavLink>
           </li>
           <li className={style.menuItem}>
-            <Link to="/settings" onClick={hideMobileMenu}>
+            <NavLink to="/settings" onClick={hideMobileMenu} activeClassName={style.activeLink}>
               Settings
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </nav>
