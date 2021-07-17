@@ -29,13 +29,3 @@
   opacity: 0;
   transition: opacity 400ms ease-out;
 }
-
-@keyframes score-opacity {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}

@@ -1,0 +1,21 @@
+@mixin move-bet-mixin($name, $x, $y) {
+  @keyframes #{$name} {
+    0% {
+      transform: translate($x * 1%, $y * 1%);
+      opacity: 1;
+    }
+
+    80% {
+      opacity: 0;
+    }
+
+    100% {
+      transform: translate($x * 1%, 100%);
+      opacity: 0;
+    }
+  }
+}
+
+@include move-bet-mixin(move-bet-1, 0, 0);
+@include move-bet-mixin(move-bet-2, 5, 5);
+@include move-bet-mixin(move-bet-3, -5, -5);

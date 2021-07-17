@@ -1,3 +1,5 @@
+@import './animation';
+
 .chipPlace {
   position: relative;
   width: 70px;
@@ -18,12 +20,37 @@
   position: absolute;
   width: 100%;
   font-size: 0;
+  z-index: 5;
+
+  &:nth-child(2n) {
+    transform: translate(5%, 5%);
+  }
+
+  &:nth-child(3n) {
+    transform: translate(-5%, -5%);
+  }
 }
 
-.chipContainer:nth-child(2n) {
-  transform: translate(5%, 5%);
+.betShow {
+  animation: move-bet-1 400ms ease-in-out forwards reverse;
+
+  &:nth-child(2n) {
+    animation: move-bet-2 400ms ease-in-out forwards reverse;
+  }
+
+  &:nth-child(3n) {
+    animation: move-bet-3 400ms ease-in-out forwards reverse;
+  }
 }
 
-.chipContainer:nth-child(3n) {
-  transform: translate(-5%, -5%);
+.betHide {
+  animation: move-bet-1 400ms ease-in-out forwards;
+
+  &:nth-child(2n) {
+    animation: move-bet-2 400ms ease-in-out forwards;
+  }
+
+  &:nth-child(3n) {
+    animation: move-bet-3 400ms ease-in-out forwards;
+  }
 }

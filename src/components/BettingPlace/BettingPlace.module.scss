@@ -88,6 +88,13 @@
   }
 }
 
+.ratio {
+  position: absolute;
+  top: 50%;
+  left: auto;
+  transform: translateY(-50%);
+}
+
 .amount {
   overflow: hidden;
   white-space: nowrap;

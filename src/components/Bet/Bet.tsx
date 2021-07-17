@@ -26,7 +26,19 @@ export const Bet = observer(({ bet, bettingName }: BetProps) => {
         const nodeRef = React.createRef<HTMLDivElement>();
 
         return (
-          <CSSTransition classNames="100" timeout={5} key={key} nodeRef={nodeRef} appear={true}>
+          <CSSTransition
+            classNames={{
+              enterActive: style.betShow,
+              exitActive: style.betHide,
+            }}
+            timeout={{
+              enter: 400,
+              exit: 400,
+            }}
+            key={key}
+            nodeRef={nodeRef}
+            appear={true}
+          >
             <div key={key} ref={nodeRef} className={style.chipContainer}>
               <Chip value={value} />
             </div>
