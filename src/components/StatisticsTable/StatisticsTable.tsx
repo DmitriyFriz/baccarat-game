@@ -5,6 +5,8 @@ import { useStore } from '../../store';
 import { Statistics } from '../../common/types';
 import { useSortTable } from '../../hooks/useSortTable';
 import { getDate } from '../../common/utils/getDate';
+import { Message } from '../Message';
+import { StatisticsMessage } from '../../common/statisticsData';
 
 import style from './StatisticsTable.module.scss';
 
@@ -30,6 +32,10 @@ const Row = ({ statistics }: RowProps) => {
 export const StatisticsTable = observer(() => {
   const statisticsStore = useStore('statisticsStore');
   const tableData = toJS(statisticsStore.statistics).reverse();
+
+  if (tableData.length === 0) {
+    return <Message message={StatisticsMessage.Empty} />;
+  }
 
   const { getSortByKey, sortKey, isSortAscending, sortedData } = useSortTable(tableData);
 

@@ -57,9 +57,9 @@ body {
     text-transform: uppercase;
     font-size: 14px;
     color: #fff;
+    transition: all 0.2s;
 
     &:hover {
-      transition: all 0.2s;
       box-shadow: 0 14px 26px -12px rgba(51, 150, 250, 0.55), 0 4px 23px 0px rgba(0, 0, 0, 0.12),
         0 8px 10px -5px rgba(62, 152, 241, 0.35);
       background-color: #57a5f8;
@@ -67,6 +67,12 @@ body {
 
     &:disabled {
       opacity: 0;
+    }
+
+    &:active {
+      color: #e7e5e5;
+      box-shadow: none;
+      background-color: #2e93ff;
     }
   }
 

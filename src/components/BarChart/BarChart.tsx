@@ -6,6 +6,8 @@ import { Chart } from 'chart.js';
 import zoomPlugin from 'chartjs-plugin-zoom';
 import { useStore } from '../../store';
 import { getChartConfig } from './chartConfig';
+import { Message } from '../Message';
+import { StatisticsMessage } from '../../common/statisticsData';
 
 import style from './BarChart.module.scss';
 
@@ -19,8 +21,11 @@ export const BarChart = observer(() => {
   const statisticsStore = useStore('statisticsStore');
   const chartData = toJS(statisticsStore.chartData);
 
-  const chartRef = useRef<Zoom>(null);
+  if (chartData.length === 0) {
+    return <Message message={StatisticsMessage.Empty} />;
+  }
 
+  const chartRef = useRef<Zoom>(null);
   const { dataConfig, optionsConfig } = getChartConfig(chartData);
 
   return (
