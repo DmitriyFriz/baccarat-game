@@ -10,6 +10,7 @@ import {
 import { Dealer } from './gameUtils/Dealer';
 import { BettingStore } from './BettingStore';
 import { countScore } from './gameUtils/countScore';
+import { autoSaveKeys } from './storeUtils/autoSave';
 
 export class GameStore {
   playerCards: PlayingCard[] = [];
@@ -29,6 +30,7 @@ export class GameStore {
       changePlayerMinScore: action.bound,
       changeBankerMinScore: action.bound,
     });
+    autoSaveKeys(this, 'game', ['playerMinScore', 'bankerMinScore']);
   }
 
   changePlayerMinScore(score: MinScore) {
