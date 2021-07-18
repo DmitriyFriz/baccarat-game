@@ -1,0 +1,17 @@
+.text {
+  max-width: 600px;
+  width: 100%;
+  animation: draw 2.5s ease-in-out;
+}
+
+@keyframes draw {
+  0% {
+    stroke-dasharray: 411;
+    stroke-dashoffset: 411;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    stroke-dashoffset: 0;
+  }
+}

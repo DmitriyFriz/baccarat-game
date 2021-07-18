@@ -1,0 +1,1 @@
+export { StartText } from './StartText';
