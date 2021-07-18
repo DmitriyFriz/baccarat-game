@@ -7,6 +7,7 @@ import { Game } from '../pages/Game';
 import { Statistics } from '../pages/Statistics';
 import { Chart } from '../pages/Chart';
 import { Settings } from '../pages/Settings';
+import { StartScreen } from '../pages/StartScreen';
 
 export const App = () => {
   return (
@@ -14,7 +15,8 @@ export const App = () => {
       <div className={style.container}>
         <Header />
         <Switch>
-          <Route path="/" exact={true} component={Game} />
+          <Route path="/" exact={true} component={StartScreen} />
+          <Route path="/game" component={Game} />
           <Route path="/statistics" component={Statistics} />
           <Route path="/chart" component={Chart} />
           <Route path="/settings" component={Settings} />
